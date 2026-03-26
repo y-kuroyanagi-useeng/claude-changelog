@@ -39,7 +39,7 @@ footer{text-align:center;padding:24px;font-size:.8rem;color:var(--text2);border-
 <body>
 <header class="site-header">
   <h1><span class="brand">Claude Code</span> v2.1.84 リリースノート</h1>
-  <div class="meta">2026年3月26日 ｜ 全8件の変更</div>
+  <div class="meta">2026年3月26日 ｜ 全38件の変更</div>
   <a class="back-link" href="index.html">← バージョン一覧に戻る</a>
 </header>
 <main class="container">
@@ -48,72 +48,312 @@ footer{text-align:center;padding:24px;font-size:.8rem;color:var(--text2);border-
       <h2>🚀 Claude Code v2.1.84 リリース</h2>
       <div class="subtitle">2026年3月26日</div>
     </div>
-    <div class="cat-header" style="color:#0969da;background:#ddf4ff;">✨ 新機能<span class="cat-count">3件</span></div>
+    <div class="cat-header" style="color:#0969da;background:#ddf4ff;">✨ 新機能<span class="cat-count">14件</span></div>
 <div class="change-item">
   <div class="change-icon">✨</div>
   <div class="change-body">
     <div class="change-en">PowerShell tool for Windows (opt-in preview)</div>
     <div class="change-jp">Windows用PowerShellツール（オプトインプレビュー）</div>
-    <div class="change-note">Windows環境でのPowerShell実行をサポート</div>
+    <div class="change-note">Windows環境でのシェル操作に対応</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">✨</div>
   <div class="change-body">
-    <div class="change-en">Environment variables for default model configuration</div>
-    <div class="change-jp">デフォルトモデル設定用の環境変数追加</div>
-    <div class="change-note">ANTHROPIC_DEFAULT_{OPUS,SONNET,HAIKU}_MODEL_SUPPORTSで3rdパーティプロバイダの推論機能を制御可能</div>
+    <div class="change-en">Environment variables for model capability detection</div>
+    <div class="change-jp">モデル機能検出用の環境変数</div>
+    <div class="change-note">ANTHROPIC_DEFAULT_{OPUS,SONNET,HAIKU}_MODEL_SUPPORTS他を追加</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">✨</div>
   <div class="change-body">
-    <div class="change-en">TaskCreated and WorktreeCreate hooks</div>
-    <div class="change-jp">TaskCreatedおよびWorktreeCreateフック</div>
-    <div class="change-note">タスク作成時およびワークツリー作成時の処理をカスタマイズ可能</div>
+    <div class="change-en">Streaming idle timeout configuration variable</div>
+    <div class="change-jp">ストリーミングアイドルタイムアウト設定</div>
+    <div class="change-note">CLAUDE_STREAM_IDLE_TIMEOUT_MSで動作調整可能</div>
   </div>
-</div><div class="cat-header" style="color:#cf222e;background:#ffebe9;">🐛 バグ修正<span class="cat-count">2件</span></div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">TaskCreated hook for automation</div>
+    <div class="change-jp">自動化用TaskCreatedフック</div>
+    <div class="change-note">タスク作成時に自動実行できるフック</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">WorktreeCreate hook HTTP type support</div>
+    <div class="change-jp">WorktreeCreateフックのHTTP型対応</div>
+    <div class="change-note">HTTPベースのワークツリー作成をサポート</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">allowedChannelPlugins managed setting</div>
+    <div class="change-jp">allowedChannelPluginsチャネルプラグイン設定</div>
+    <div class="change-note">チーム/エンタープライズ管理者向けホワイトリスト</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Deep links respect preferred terminal</div>
+    <div class="change-jp">ディープリンクが優先ターミナルで開く</div>
+    <div class="change-note">claude-cli://リンクが指定ターミナルで実行</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Rules and skills support YAML glob lists</div>
+    <div class="change-jp">ルール・スキルパスがYAMLリスト対応</div>
+    <div class="change-note">複数グロブパターンをサポート</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Idle-return prompt after 75+ minutes</div>
+    <div class="change-jp">75分以上経過後の再開プロンプト</div>
+    <div class="change-note">トークン再キャッシュを削減</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">MCP servers deduplicated with local precedence</div>
+    <div class="change-jp">MCPサーバーのデデュプリケーション</div>
+    <div class="change-note">ローカルとクラウド設定の重複排除、ローカル優先</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">x-client-request-id header for API debugging</div>
+    <div class="change-jp">APIリクエストにx-client-request-idを追加</div>
+    <div class="change-note">タイムアウトのデバッグに便利</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">VSCode rate limit warning banner</div>
+    <div class="change-jp">VSCode用レート制限警告バナー</div>
+    <div class="change-note">使用量とリセット時間を表示</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Unavailable slash commands now hidden</div>
+    <div class="change-jp">利用不可のスラッシュコマンド非表示</div>
+    <div class="change-note">環境に合わせてUIをクリーンアップ</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Remote Control specific reason messaging</div>
+    <div class="change-jp">リモートコントロール改善フィードバック</div>
+    <div class="change-note">ブロック理由が詳細に表示される</div>
+  </div>
+</div><div class="cat-header" style="color:#cf222e;background:#ffebe9;">🐛 バグ修正<span class="cat-count">18件</span></div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed voice push-to-talk character leak and multiple input issues</div>
-    <div class="change-jp">音声入力の文字漏洩および複数の入力問題を修正</div>
-    <div class="change-note">カーソル位置追跡、IME入力対応、chord bindingの修正を含む</div>
+    <div class="change-en">Voice input no longer leaks characters</div>
+    <div class="change-jp">音声入力がキャラクターをリークしない</div>
+    <div class="change-note">プッシュトゥトークで文字が挿入されない</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed MCP and workflow subagent issues</div>
-    <div class="change-jp">MCPおよびワークフロー部分エージェントの問題を修正</div>
-    <div class="change-note">キャッシュリークとAPI 400エラーを解決</div>
+    <div class="change-en">Voice transcript position corrected</div>
+    <div class="change-jp">音声トランスクリプト位置を修正</div>
+    <div class="change-note">トランスクリプトが正しい位置に挿入</div>
   </div>
-</div><div class="cat-header" style="color:#9a6700;background:#fff8c5;">⚡ パフォーマンス<span class="cat-count">2件</span></div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Arrow keys responsive when footer focused</div>
+    <div class="change-jp">フッターフォーカス時の矢印キー動作修正</div>
+    <div class="change-note">上下矢印キーが正常に動作</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Ctrl+U now works across line boundaries</div>
+    <div class="change-jp">Ctrl+U行末での動作を修正</div>
+    <div class="change-note">複数行入力で正しく動作</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Chord binding null-unbinding fixed</div>
+    <div class="change-jp">コード バインディングnull解除を修正</div>
+    <div class="change-note">プリフィックスキーが適切に解放</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Mouse events in transcript search fixed</div>
+    <div class="change-jp">トランスクリプト検索のマウスイベント修正</div>
+    <div class="change-note">マウスイベントがテキストとして挿入されない</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Workflow subagents API 400 error fixed</div>
+    <div class="change-jp">ワークフロー副エージェントのAPI 400修正</div>
+    <div class="change-note">JSONスキーマ指定時のエラーを解決</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Emoji background color display fixed</div>
+    <div class="change-jp">ユーザーメッセージ絵文字背景色修正</div>
+    <div class="change-note">一部ターミナルでの表示問題解決</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Settings edit permission now persists</div>
+    <div class="change-jp">設定編集権限の永続化を修正</div>
+    <div class="change-note">ユーザー設定での権限保存が正常動作</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Attachment snippet generation hang fixed</div>
+    <div class="change-jp">大きなファイルスニペット生成ハング修正</div>
+    <div class="change-note">編集ファイルのスニペット処理が高速化</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">MCP tool cache leak on reconnect fixed</div>
+    <div class="change-jp">MCP再接続時のキャッシュリーク修正</div>
+    <div class="change-note">メモリリークが解決</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Partial clone repositories startup fixed</div>
+    <div class="change-jp">部分クローンリポジトリ起動修正</div>
+    <div class="change-note">Scalar/GVFSで大量ダウンロードが発生しない</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Terminal cursor tracking IME composition fixed</div>
+    <div class="change-jp">ターミナルカーソルIME構成を修正</div>
+    <div class="change-note">CJK入力がインラインで正しくレンダリング</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">macOS keychain transient read failures fixed</div>
+    <div class="change-jp">macOSキーチェーンエラー修正</div>
+    <div class="change-note">「ログインされていません」エラー解決</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Cold-start core tools race condition fixed</div>
+    <div class="change-jp">コールドスタート時レース条件修正</div>
+    <div class="change-note">Edit/Writeが失敗しなくなった</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Windows drive root dangerous removal detection</div>
+    <div class="change-jp">Windowsドライブルート危険削除検出</div>
+    <div class="change-note">C:\などの重要ディレクトリ削除を防止</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Issue/PR reference linking behavior changed</div>
+    <div class="change-jp">Issue/PRリファレンスリンク動作変更</div>
+    <div class="change-note">owner/repo#123形式のみがリンク化</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Stats screenshot now works in all builds</div>
+    <div class="change-jp">統計スクリーンショット全ビルド対応</div>
+    <div class="change-note">Ctrl+Sがすべてのビルドで動作</div>
+  </div>
+</div><div class="cat-header" style="color:#9a6700;background:#fff8c5;">⚡ パフォーマンス<span class="cat-count">6件</span></div>
 <div class="change-item">
   <div class="change-icon">⚡</div>
   <div class="change-body">
-    <div class="change-en">MCP server deduplication and description capping</div>
-    <div class="change-jp">MCPサーバーの重複排除と説明文の制限</div>
-    <div class="change-note">ローカル設定が優先され、コンテキスト肥大化を防止</div>
+    <div class="change-en">Interactive startup improved by 30ms</div>
+    <div class="change-jp">インタラクティブ起動が30ms高速化</div>
+    <div class="change-note">並列セットアップで性能向上</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">⚡</div>
   <div class="change-body">
-    <div class="change-en">Improved startup performance</div>
-    <div class="change-jp">スタートアップパフォーマンスの向上</div>
-    <div class="change-note">部分クローンリポジトリのblob取得を削減、並列処理で約30ms短縮</div>
-  </div>
-</div><div class="cat-header" style="color:#bc4c00;background:#ffd8b5;">🔒 セキュリティ<span class="cat-count">1件</span></div>
-<div class="change-item">
-  <div class="change-icon">🔒</div>
-  <div class="change-body">
-    <div class="change-en">Improved detection for dangerous Windows path removals</div>
-    <div class="change-jp">Windows危険パス削除の検出改善</div>
-    <div class="change-note">ドライブルート削除を事前に警告</div>
+    <div class="change-en">Stats screenshot 16× faster</div>
+    <div class="change-jp">統計スクリーンショット16倍高速化</div>
+    <div class="change-note">キャプチャ処理が劇的に改善</div>
   </div>
 </div>
-    <div class="summary-bar"><span class="sum-pill">✨ 新機能 3件</span><span class="sum-pill">🐛 バグ修正 2件</span><span class="sum-pill">⚡ パフォーマンス 2件</span><span class="sum-pill">🔒 セキュリティ 1件</span></div>
+<div class="change-item">
+  <div class="change-icon">⚡</div>
+  <div class="change-body">
+    <div class="change-en">p90 prompt cache rate improved</div>
+    <div class="change-jp">プロンプトキャッシュレート改善</div>
+    <div class="change-note">キャッシュヒット率が向上</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">⚡</div>
+  <div class="change-body">
+    <div class="change-en">Scroll-to-top resets significantly reduced</div>
+    <div class="change-jp">スクロール自動リセット削減</div>
+    <div class="change-note">長期セッションでの動作が改善</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">⚡</div>
+  <div class="change-body">
+    <div class="change-en">Terminal flickering with animated tools reduced</div>
+    <div class="change-jp">ターミナルちらつき削減</div>
+    <div class="change-note">アニメーテッドツール表示が滑らか</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">⚡</div>
+  <div class="change-body">
+    <div class="change-en">MCP tool descriptions capped at 2KB</div>
+    <div class="change-jp">MCPツール説明を2KBに制限</div>
+    <div class="change-note">コンテキスト圧迫を防止</div>
+  </div>
+</div>
+    <div class="summary-bar"><span class="sum-pill">✨ 新機能 14件</span><span class="sum-pill">🐛 バグ修正 18件</span><span class="sum-pill">⚡ パフォーマンス 6件</span></div>
     <a class="github-btn" href="https://github.com/anthropics/claude-code/releases/tag/v2.1.84" target="_blank">GitHub リリースページを見る →</a>
   </div>
 </main>
