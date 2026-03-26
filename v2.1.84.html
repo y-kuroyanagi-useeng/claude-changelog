@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Claude Code v2.1.84 リリースノート</title>
+<style>
+:root{--bg:#f6f8fa;--bg2:#fff;--bg3:#f0f2f5;--border:#d0d7de;--text:#1f2328;--text2:#57606a;--accent:#0969da;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI','Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:15px;}
+.site-header{background:var(--bg2);border-bottom:1px solid var(--border);padding:24px;text-align:center;position:sticky;top:0;z-index:10;box-shadow:0 1px 6px rgba(0,0,0,.06);}
+.site-header h1{font-size:1.5rem;font-weight:700;}
+.site-header h1 .brand{color:var(--accent);}
+.site-header .meta{margin-top:6px;font-size:.85rem;color:var(--text2);}
+.back-link{display:inline-block;margin-top:8px;font-size:.82rem;color:var(--accent);text-decoration:none;}
+.back-link:hover{text-decoration:underline;}
+.container{max-width:860px;margin:24px auto 60px;padding:0 16px;}
+.version-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.05);}
+.card-header{background:#e8f3ff;border-bottom:2px solid var(--accent);padding:18px 22px;}
+.card-header h2{font-size:1.4rem;font-weight:700;}
+.card-header .subtitle{margin-top:4px;font-size:.85rem;color:var(--text2);}
+.cat-header{display:flex;align-items:center;justify-content:space-between;padding:10px 22px;font-weight:700;font-size:1rem;border-bottom:1px solid var(--border);}
+.cat-count{font-size:.78rem;font-weight:600;background:rgba(0,0,0,.07);border-radius:20px;padding:2px 10px;}
+.change-item{display:flex;align-items:flex-start;gap:12px;padding:10px 22px;border-bottom:1px solid var(--bg3);}
+.change-item:last-child{border-bottom:none;}
+.change-item:hover{background:var(--bg3);}
+.change-icon{font-size:1.2rem;line-height:1.6;flex-shrink:0;width:26px;text-align:center;}
+.change-body{flex:1;min-width:0;}
+.change-en{font-size:.82rem;color:var(--text2);margin-bottom:2px;}
+.change-jp{font-weight:600;font-size:.95rem;}
+.change-note{margin-top:3px;font-size:.83rem;color:var(--text2);line-height:1.5;}
+.summary-bar{display:flex;flex-wrap:wrap;gap:8px;padding:12px 22px;background:var(--bg3);border-top:1px solid var(--border);}
+.sum-pill{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:2px 10px;font-size:.78rem;color:var(--text2);}
+.github-btn{display:block;text-align:center;padding:12px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;font-size:.9rem;}
+.github-btn:hover{background:#0860c8;}
+footer{text-align:center;padding:24px;font-size:.8rem;color:var(--text2);border-top:1px solid var(--border);background:var(--bg2);}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <h1><span class="brand">Claude Code</span> v2.1.84 リリースノート</h1>
+  <div class="meta">2026年3月26日 ｜ 全39件の変更</div>
+  <a class="back-link" href="index.html">← バージョン一覧に戻る</a>
+</header>
+<main class="container">
+  <div class="version-card">
+    <div class="card-header">
+      <h2>🚀 Claude Code v2.1.84 リリース</h2>
+      <div class="subtitle">2026年3月26日</div>
+    </div>
+    <div class="cat-header" style="color:#0969da;background:#ddf4ff;">✨ 新機能<span class="cat-count">16件</span></div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">PowerShell tool for Windows (preview)</div>
+    <div class="change-jp">Windows用PowerShellツール追加</div>
+    <div class="change-note">オプトイン プレビュー</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Model capability detection override env vars</div>
+    <div class="change-jp">モデル機能検出上書き環境変数</div>
+    <div class="change-note">ANTHROPIC_DEFAULT_* サポート</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">CLAUDE_STREAM_IDLE_TIMEOUT_MS env var</div>
+    <div class="change-jp">ストリーミング待機タイムアウト設定</div>
+    <div class="change-note">デフォルト90秒</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">TaskCreated hook for task creation</div>
+    <div class="change-jp">タスク作成フック追加</div>
+    <div class="change-note">自動化をサポート</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">HTTP worktree creation via hooks</div>
+    <div class="change-jp">HTTPワークツリー作成対応</div>
+    <div class="change-note">hookSpecificOutput サポート</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Channel plugin allowlist setting</div>
+    <div class="change-jp">チャネルプラグインホワイトリスト</div>
+    <div class="change-note">管理者向け設定</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">x-client-request-id header</div>
+    <div class="change-jp">APIリクエストIDヘッダー追加</div>
+    <div class="change-note">デバッグ用途</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Deep links use preferred terminal</div>
+    <div class="change-jp">claude-cli://リンク対応改善</div>
+    <div class="change-note">ターミナル選択最適化</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Frontmatter YAML glob list support</div>
+    <div class="change-jp">フロントマターYAMLグロブ対応</div>
+    <div class="change-note">ルール・スキルパス</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Deduplicated MCP server configs</div>
+    <div class="change-jp">ローカル/クラウドMCP統合</div>
+    <div class="change-note">ローカル設定優先</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Stuck bash task notifications</div>
+    <div class="change-jp">スタックタスク通知追加</div>
+    <div class="change-note">45秒後通知</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Token count display formatting</div>
+    <div class="change-jp">大型トークン数表示改善</div>
+    <div class="change-note">1.5m形式で表示</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Global system-prompt caching</div>
+    <div class="change-jp">システムプロンプトキャッシング</div>
+    <div class="change-note">ToolSearch対応</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Remote Control block reason messages</div>
+    <div class="change-jp">リモートコントロール理由表示</div>
+    <div class="change-note">ユーザー体験改善</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Unavailable commands now hidden</div>
+    <div class="change-jp">利用不可コマンド非表示化</div>
+    <div class="change-note">認証設定に応じて動的表示</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">VSCode rate limit warning banner</div>
+    <div class="change-jp">レート制限警告バナー</div>
+    <div class="change-note">使用率とリセット時刻表示</div>
+  </div>
+</div><div class="cat-header" style="color:#cf222e;background:#ffebe9;">🐛 バグ修正<span class="cat-count">14件</span></div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Voice push-to-talk character leak</div>
+    <div class="change-jp">音声キー文字漏洩修正</div>
+    <div class="change-note">トランスクリプト位置改善</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Arrow key responsiveness</div>
+    <div class="change-jp">上下矢印キー応答性修正</div>
+    <div class="change-note">フッター項目フォーカス時</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Ctrl+U line boundary behavior</div>
+    <div class="change-jp">Ctrl+U行境界動作修正</div>
+    <div class="change-note">複数行クリア対応</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Null chord binding unbinding</div>
+    <div class="change-jp">コードバインド無効化修正</div>
+    <div class="change-note">プリフィックスキー解放</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Mouse text insertion in search</div>
+    <div class="change-jp">マウスイベント文字挿入修正</div>
+    <div class="change-note">検索入力誤入力排除</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Workflow subagent API errors</div>
+    <div class="change-jp">ワークフロー部分エージェント修正</div>
+    <div class="change-note">400エラー解決</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Emoji background color rendering</div>
+    <div class="change-jp">絵文字背景色表示修正</div>
+    <div class="change-note">ターミナル環境対応</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Settings edit permission persistence</div>
+    <div class="change-jp">設定編集権限保持修正</div>
+    <div class="change-note">セッション設定対応</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Attachment snippet generation hang</div>
+    <div class="change-jp">アタッチメント生成ハング修正</div>
+    <div class="change-note">大規模ファイル対応</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">MCP cache leak on reconnect</div>
+    <div class="change-jp">MCPキャッシュ漏洩修正</div>
+    <div class="change-note">サーバー再接続時</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Partial clone startup performance</div>
+    <div class="change-jp">部分クローンスタートアップ修正</div>
+    <div class="change-note">Scalar/GVFS対応</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Terminal cursor IME tracking</div>
+    <div class="change-jp">IMEカーソル追跡修正</div>
+    <div class="change-note">CJK入力対応</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Spurious login errors on macOS</div>
+    <div class="change-jp">macOSログインエラー修正</div>
+    <div class="change-note">キーチェーン読込最適化</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Core tool deferral race condition</div>
+    <div class="change-jp">コアツール遅延競合修正</div>
+    <div class="change-note">Edit/Write入力検証対応</div>
+  </div>
+</div><div class="cat-header" style="color:#9a6700;background:#fff8c5;">⚡ パフォーマンス<span class="cat-count">7件</span></div>
+<div class="change-item">
+  <div class="change-icon">⚡</div>
+  <div class="change-body">
+    <div class="change-en">MCP descriptions capped at 2KB</div>
+    <div class="change-jp">MCP説明文サイズキャップ</div>
+    <div class="change-note">コンテキスト効率化</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">⚡</div>
+  <div class="change-body">
+    <div class="change-en">Interactive startup 30ms faster</div>
+    <div class="change-jp">スタートアップ30ms高速化</div>
+    <div class="change-note">並列処理最適化</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">⚡</div>
+  <div class="change-body">
+    <div class="change-en">MCP prompt startup immediate</div>
+    <div class="change-jp">MCPプロンプト起動改善</div>
+    <div class="change-note">サーバー接続待機排除</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">⚡</div>
+  <div class="change-body">
+    <div class="change-en">Improved prompt cache hit rate</div>
+    <div class="change-jp">プロンプトキャッシュ率改善</div>
+    <div class="change-note">p90パフォーマンス</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">⚡</div>
+  <div class="change-body">
+    <div class="change-en">Reduced scroll-to-top resets</div>
+    <div class="change-jp">不要スクロール削減</div>
+    <div class="change-note">長期セッション最適化</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">⚡</div>
+  <div class="change-body">
+    <div class="change-en">Reduced terminal flickering</div>
+    <div class="change-jp">ターミナルフリッカー削減</div>
+    <div class="change-note">アニメーションスクロール時</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">⚡</div>
+  <div class="change-body">
+    <div class="change-en">Stats screenshot 16× faster</div>
+    <div class="change-jp">統計スクリーンショット高速化</div>
+    <div class="change-note">全ビルド対応</div>
+  </div>
+</div><div class="cat-header" style="color:#bc4c00;background:#ffd8b5;">🔒 セキュリティ<span class="cat-count">1件</span></div>
+<div class="change-item">
+  <div class="change-icon">🔒</div>
+  <div class="change-body">
+    <div class="change-en">Dangerous drive root removal detection</div>
+    <div class="change-jp">ドライブ削除検出改善</div>
+    <div class="change-note">C:\など危険操作検出</div>
+  </div>
+</div><div class="cat-header" style="color:#8250df;background:#fbefff;">⚠️ 破壊的変更<span class="cat-count">1件</span></div>
+<div class="change-item">
+  <div class="change-icon">⚠️</div>
+  <div class="change-body">
+    <div class="change-en">PR references require owner/repo#123</div>
+    <div class="change-jp">PR参照フォーマット変更</div>
+    <div class="change-note">bare #123は非表示に</div>
+  </div>
+</div>
+    <div class="summary-bar"><span class="sum-pill">✨ 新機能 16件</span><span class="sum-pill">🐛 バグ修正 14件</span><span class="sum-pill">⚡ パフォーマンス 7件</span><span class="sum-pill">🔒 セキュリティ 1件</span><span class="sum-pill">⚠️ 破壊的変更 1件</span></div>
+    <a class="github-btn" href="https://github.com/anthropics/claude-code/releases/tag/v2.1.84" target="_blank">GitHub リリースページを見る →</a>
+  </div>
+</main>
+<footer>Claude Code リリースノート 日本語解説 | 自動生成</footer>
+</body>
+</html>
