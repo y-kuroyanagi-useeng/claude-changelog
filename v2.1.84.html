@@ -48,72 +48,72 @@ footer{text-align:center;padding:24px;font-size:.8rem;color:var(--text2);border-
       <h2>🚀 Claude Code v2.1.84 リリース</h2>
       <div class="subtitle">2026年3月26日</div>
     </div>
-    <div class="cat-header" style="color:#0969da;background:#ddf4ff;">✨ 新機能<span class="cat-count">5件</span></div>
+    <div class="cat-header" style="color:#0969da;background:#ddf4ff;">✨ 新機能<span class="cat-count">3件</span></div>
 <div class="change-item">
   <div class="change-icon">✨</div>
   <div class="change-body">
-    <div class="change-en">PowerShell tool for Windows</div>
-    <div class="change-jp">WindowsのPowerShellツール追加</div>
-    <div class="change-note">オプトインプレビューとして利用可能</div>
+    <div class="change-en">PowerShell tool for Windows (opt-in preview)</div>
+    <div class="change-jp">Windows用PowerShellツール（オプトインプレビュー）</div>
+    <div class="change-note">Windows環境でのPowerShell実行をサポート</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">✨</div>
   <div class="change-body">
-    <div class="change-en">Environment variable overrides for model capabilities</div>
-    <div class="change-jp">モデル機能検出のための環境変数追加</div>
-    <div class="change-note">ANTHROPIC_DEFAULT_{OPUS,SONNET,HAIKU}_MODEL_SUPPORTS等</div>
+    <div class="change-en">Environment variables for default model configuration</div>
+    <div class="change-jp">デフォルトモデル設定用の環境変数追加</div>
+    <div class="change-note">ANTHROPIC_DEFAULT_{OPUS,SONNET,HAIKU}_MODEL_SUPPORTSで3rdパーティプロバイダの推論機能を制御可能</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">✨</div>
   <div class="change-body">
     <div class="change-en">TaskCreated and WorktreeCreate hooks</div>
-    <div class="change-jp">TaskCreatedおよびWorktreeCreateフック追加</div>
-    <div class="change-note">HTTPタイプのWorktreeCreate対応</div>
+    <div class="change-jp">TaskCreatedおよびWorktreeCreateフック</div>
+    <div class="change-note">タスク作成時およびワークツリー作成時の処理をカスタマイズ可能</div>
   </div>
-</div>
-<div class="change-item">
-  <div class="change-icon">✨</div>
-  <div class="change-body">
-    <div class="change-en">allowedChannelPlugins managed setting</div>
-    <div class="change-jp">チャネルプラグイン許可リスト設定追加</div>
-    <div class="change-note">チームおよびエンタープライズ管理者向け</div>
-  </div>
-</div>
-<div class="change-item">
-  <div class="change-icon">✨</div>
-  <div class="change-body">
-    <div class="change-en">Global system-prompt caching with ToolSearch</div>
-    <div class="change-jp">ToolSearch対応のシステムプロンプトキャッシング</div>
-    <div class="change-note">MCPツール設定時にも機能</div>
-  </div>
-</div><div class="cat-header" style="color:#cf222e;background:#ffebe9;">🐛 バグ修正<span class="cat-count">1件</span></div>
+</div><div class="cat-header" style="color:#cf222e;background:#ffebe9;">🐛 バグ修正<span class="cat-count">2件</span></div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed multiple critical bugs</div>
-    <div class="change-jp">複数の重要なバグ修正</div>
-    <div class="change-note">ボイス入力、矢印キー、IME入力、MCP関連の問題を解決</div>
+    <div class="change-en">Fixed voice push-to-talk character leak and multiple input issues</div>
+    <div class="change-jp">音声入力の文字漏洩および複数の入力問題を修正</div>
+    <div class="change-note">カーソル位置追跡、IME入力対応、chord bindingの修正を含む</div>
   </div>
-</div><div class="cat-header" style="color:#9a6700;background:#fff8c5;">⚡ パフォーマンス<span class="cat-count">1件</span></div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed MCP and workflow subagent issues</div>
+    <div class="change-jp">MCPおよびワークフロー部分エージェントの問題を修正</div>
+    <div class="change-note">キャッシュリークとAPI 400エラーを解決</div>
+  </div>
+</div><div class="cat-header" style="color:#9a6700;background:#fff8c5;">⚡ パフォーマンス<span class="cat-count">2件</span></div>
 <div class="change-item">
   <div class="change-icon">⚡</div>
   <div class="change-body">
-    <div class="change-en">Improved startup performance and cache rate</div>
-    <div class="change-jp">起動パフォーマンス向上とキャッシュ効率改善</div>
-    <div class="change-note">セットアップ並列化により約30ms高速化、p90キャッシュレート向上</div>
+    <div class="change-en">MCP server deduplication and description capping</div>
+    <div class="change-jp">MCPサーバーの重複排除と説明文の制限</div>
+    <div class="change-note">ローカル設定が優先され、コンテキスト肥大化を防止</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">⚡</div>
+  <div class="change-body">
+    <div class="change-en">Improved startup performance</div>
+    <div class="change-jp">スタートアップパフォーマンスの向上</div>
+    <div class="change-note">部分クローンリポジトリのblob取得を削減、並列処理で約30ms短縮</div>
   </div>
 </div><div class="cat-header" style="color:#bc4c00;background:#ffd8b5;">🔒 セキュリティ<span class="cat-count">1件</span></div>
 <div class="change-item">
   <div class="change-icon">🔒</div>
   <div class="change-body">
-    <div class="change-en">Added x-client-request-id header for debugging</div>
-    <div class="change-jp">APIリクエストにx-client-request-idヘッダー追加</div>
-    <div class="change-note">タイムアウト問題の診断に活用</div>
+    <div class="change-en">Improved detection for dangerous Windows path removals</div>
+    <div class="change-jp">Windows危険パス削除の検出改善</div>
+    <div class="change-note">ドライブルート削除を事前に警告</div>
   </div>
 </div>
-    <div class="summary-bar"><span class="sum-pill">✨ 新機能 5件</span><span class="sum-pill">🐛 バグ修正 1件</span><span class="sum-pill">⚡ パフォーマンス 1件</span><span class="sum-pill">🔒 セキュリティ 1件</span></div>
+    <div class="summary-bar"><span class="sum-pill">✨ 新機能 3件</span><span class="sum-pill">🐛 バグ修正 2件</span><span class="sum-pill">⚡ パフォーマンス 2件</span><span class="sum-pill">🔒 セキュリティ 1件</span></div>
     <a class="github-btn" href="https://github.com/anthropics/claude-code/releases/tag/v2.1.84" target="_blank">GitHub リリースページを見る →</a>
   </div>
 </main>
