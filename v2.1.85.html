@@ -48,248 +48,248 @@ footer{text-align:center;padding:24px;font-size:.8rem;color:var(--text2);border-
       <h2>🚀 Claude Code v2.1.85 リリース</h2>
       <div class="subtitle">2026年3月26日</div>
     </div>
-    <div class="cat-header" style="color:#0969da;background:#ddf4ff;">✨ 新機能<span class="cat-count">8件</span></div>
+    <div class="cat-header" style="color:#0969da;background:#ddf4ff;">✨ 新機能<span class="cat-count">9件</span></div>
 <div class="change-item">
   <div class="change-icon">✨</div>
   <div class="change-body">
-    <div class="change-en">MCP server environment variables for multiple servers</div>
-    <div class="change-jp">複数のサーバーに対応したMCPサーバー環境変数を追加</div>
-    <div class="change-note">CLAUDE_CODE_MCP_SERVER_NAME and CLAUDE_CODE_MCP_SERVER_URL enable helper script reuse</div>
+    <div class="change-en">Added CLAUDE_CODE_MCP_SERVER_NAME and CLAUDE_CODE_MCP_SERVER_URL environment variables</div>
+    <div class="change-jp">MCP環境変数を追加</div>
+    <div class="change-note">1つのヘルパーで複数のサーバーをサポートするためにCLAUDE_CODE_MCP_SERVER_NAMEとCLAUDE_CODE_MCP_SERVER_URLの環境変数が追加されました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">✨</div>
   <div class="change-body">
-    <div class="change-en">Conditional hooks with permission rule syntax</div>
-    <div class="change-jp">パーミッションルール構文を使用した条件付きフック</div>
-    <div class="change-note">Use if field to filter hook execution and reduce overhead</div>
+    <div class="change-en">Added conditional if field for hooks to filter execution</div>
+    <div class="change-jp">フックの条件付きifフィールドを追加</div>
+    <div class="change-note">パーミッションルール構文を使用してフックの実行をフィルタリングでき、プロセス起動のオーバーヘッドが削減されます。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">✨</div>
   <div class="change-body">
-    <div class="change-en">Timestamp markers for scheduled tasks</div>
-    <div class="change-jp">スケジュール済みタスクのタイムスタンプをトランスクリプトに表示</div>
-    <div class="change-note">Visible markers when /loop and CronCreate tasks fire</div>
+    <div class="change-en">Added timestamp markers in transcripts for scheduled tasks</div>
+    <div class="change-jp">スケジュール済みタスクのタイムスタンプマーカーを追加</div>
+    <div class="change-note">/loopやCronCreateなどのスケジュール済みタスク実行時にトランスクリプトにタイムスタンプマーカーが表示されるようになりました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">✨</div>
   <div class="change-body">
-    <div class="change-en">Trailing space after image placeholder</div>
+    <div class="change-en">Added trailing space after image placeholders when pasting</div>
     <div class="change-jp">画像プレースホルダー後の末尾スペースを追加</div>
-    <div class="change-note">Improved formatting when pasting images</div>
+    <div class="change-note">画像を貼り付けるときに[Image #N]プレースホルダーの後に末尾スペースが追加されるようになりました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">✨</div>
   <div class="change-body">
-    <div class="change-en">Extended deep link query support to 5,000 characters</div>
-    <div class="change-jp">ディープリンククエリを5,000文字までサポート</div>
-    <div class="change-note">claude-cli://open?q=… now supports longer pre-filled prompts with scroll warning</div>
+    <div class="change-en">Deep link queries now support up to 5,000 characters</div>
+    <div class="change-jp">ディープリンククエリが5000文字まで対応</div>
+    <div class="change-note">claude-cli://open?q=形式のディープリンククエリが最大5000文字をサポートし、長いプロンプトに対して「スクロールして確認」警告が表示されます。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">✨</div>
   <div class="change-body">
-    <div class="change-en">MCP OAuth RFC 9728 Protected Resource Metadata discovery</div>
-    <div class="change-jp">MCP OAuthが RFC 9728準拠に</div>
-    <div class="change-note">Automatically discovers authorization server configuration</div>
+    <div class="change-en">MCP OAuth now follows RFC 9728 Protected Resource Metadata discovery</div>
+    <div class="change-jp">MCP OAuthがRFC 9728に対応</div>
+    <div class="change-note">MCP OAuthがRFC 9728 Protected Resource Metadata discoveryに準拠し、認可サーバーを正しく検出するようになりました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">✨</div>
   <div class="change-body">
-    <div class="change-en">PreToolUse hooks can satisfy AskUserQuestion</div>
-    <div class="change-jp">PreToolUseフックでユーザー質問に応答可能に</div>
-    <div class="change-note">Return updatedInput with permissionDecision for headless integrations</div>
+    <div class="change-en">Plugins blocked by organization policy are now hidden</div>
+    <div class="change-jp">組織ポリシーでブロックされたプラグインが非表示に</div>
+    <div class="change-note">managed-settings.jsonでブロックされたプラグインはインストール・有効化ができず、マーケットプレイスビューから非表示になります。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">✨</div>
   <div class="change-body">
-    <div class="change-en">OpenTelemetry tool_parameters gating</div>
-    <div class="change-jp">OpenTelemetryツールパラメーター制御</div>
-    <div class="change-note">Gated behind OTEL_LOG_TOOL_DETAILS=1 environment variable</div>
+    <div class="change-en">PreToolUse hooks can now satisfy AskUserQuestion with updatedInput</div>
+    <div class="change-jp">PreToolUseフックがAskUserQuestionに対応</div>
+    <div class="change-note">PreToolUseフックがupdatedInputとpermissionDecision:&#39;allow&#39;を返してAskUserQuestionを満たせるようになり、ヘッドレス統合が可能になります。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">OpenTelemetry tool_parameters now gated behind OTEL_LOG_TOOL_DETAILS</div>
+    <div class="change-jp">OpenTelemetryツールパラメータをゲート化</div>
+    <div class="change-note">OpenTelemetry tool_resultイベントのtool_parametersがOTEL_LOG_TOOL_DETAILS=1の背後にゲートされるようになりました。</div>
   </div>
 </div><div class="cat-header" style="color:#cf222e;background:#ffebe9;">🐛 バグ修正<span class="cat-count">17件</span></div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed /compact failing with context exceeded</div>
-    <div class="change-jp">/compact のコンテキスト超過エラーを修正</div>
-    <div class="change-note">Now handles large conversations requiring compact requests</div>
+    <div class="change-en">Fixed /compact failing when conversation exceeds context limit</div>
+    <div class="change-jp">/compactのコンテキスト超過エラーを修正</div>
+    <div class="change-note">会話が大きくなりすぎてコンパクト要求自体がフィットしない場合に/compactが失敗する問題を修正しました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed plugin enable/disable with different locations</div>
-    <div class="change-jp">異なるインストール場所でのプラグイン操作を修正</div>
-    <div class="change-note">Works when install location differs from settings declaration</div>
+    <div class="change-en">Fixed /plugin enable and disable with different install locations</div>
+    <div class="change-jp">/plugin enable/disableのインストール位置の問題を修正</div>
+    <div class="change-note">プラグインのインストール位置が宣言位置と異なる場合に/plugin enableと/plugin disableが失敗する問題を修正しました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed --worktree in non-git repositories</div>
-    <div class="change-jp">非Gitリポジトリの --worktree を修正</div>
-    <div class="change-note">WorktreeCreate hook now runs before exit</div>
+    <div class="change-en">Fixed --worktree error in non-git repositories</div>
+    <div class="change-jp">非gitリポジトリでの--worktreeエラーを修正</div>
+    <div class="change-note">WorktreeCreateフックが実行される前に非gitリポジトリで--worktreeがエラーで終了する問題を修正しました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed deniedMcpServers not blocking claude.ai</div>
-    <div class="change-jp">deniedMcpServersの claude.ai ブロック機能を修正</div>
-    <div class="change-note">Properly enforces denied server restrictions</div>
+    <div class="change-en">Fixed deniedMcpServers not blocking claude.ai MCP servers</div>
+    <div class="change-jp">deniedMcpServersのclaude.aiサーバーブロック問題を修正</div>
+    <div class="change-note">deniedMcpServers設定がclaude.ai MCPサーバーをブロックしていなかった問題を修正しました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
     <div class="change-en">Fixed switch_display on multi-monitor setups</div>
-    <div class="change-jp">マルチモニター環境の switch_display を修正</div>
-    <div class="change-note">No longer returns &#39;not available&#39; error</div>
+    <div class="change-jp">マルチモニターでのswitch_displayの問題を修正</div>
+    <div class="change-note">コンピュータ使用ツールのswitch_displayがマルチモニターセットアップで「利用不可」を返す問題を修正しました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed crash with OTEL exporters set to none</div>
-    <div class="change-jp">OTEL_*_EXPORTER=none でのクラッシュを修正</div>
-    <div class="change-note">Handles null exporter values gracefully</div>
+    <div class="change-en">Fixed crash when OTEL environment variables set to none</div>
+    <div class="change-jp">OTEL環境変数がnoneの場合のクラッシュを修正</div>
+    <div class="change-note">OTEL_LOGS_EXPORTER、OTEL_METRICS_EXPORTER、またはOTEL_TRACES_EXPORTERがnoneに設定されている場合のクラッシュを修正しました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
     <div class="change-en">Fixed diff syntax highlighting in non-native builds</div>
-    <div class="change-jp">非ネイティブビルドのdiff構文ハイライトを修正</div>
-    <div class="change-note">Syntax highlighting now consistent across all build types</div>
+    <div class="change-jp">非ネイティブビルドでのdiff構文ハイライトを修正</div>
+    <div class="change-note">非ネイティブビルドでdiff構文ハイライトが機能しない問題を修正しました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed MCP step-up authorization with refresh tokens</div>
-    <div class="change-jp">リフレッシュトークン使用時のMCP認可を修正</div>
-    <div class="change-note">403 insufficient_scope now correctly triggers re-authorization</div>
+    <div class="change-en">Fixed MCP step-up authorization with existing refresh tokens</div>
+    <div class="change-jp">MCP段階的認可のリフレッシュトークン問題を修正</div>
+    <div class="change-note">リフレッシュトークンが存在する場合にMCP段階的認可が失敗していた問題を修正し、403 insufficient_scopeに対する再認可フローが正しく機能するようになりました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed memory leak in remote sessions</div>
+    <div class="change-en">Fixed memory leak in remote sessions during streaming</div>
     <div class="change-jp">リモートセッションのメモリリークを修正</div>
-    <div class="change-note">Resolved when streaming response is interrupted</div>
+    <div class="change-note">ストリーミング応答が中断された場合のリモートセッションのメモリリークを修正しました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed persistent ECONNRESET errors</div>
-    <div class="change-jp">永続的な ECONNRESET エラーを修正</div>
-    <div class="change-note">Uses fresh TCP connection on retry during edge churn</div>
+    <div class="change-en">Fixed persistent ECONNRESET errors during edge connection churn</div>
+    <div class="change-jp">エッジ接続中のECONNRESETエラーを修正</div>
+    <div class="change-note">接続の変動中に持続的なECONNRESETエラーが発生していた問題を修正し、再試行時に新しいTCP接続を使用するようになりました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed prompts stuck in queue after slash commands</div>
-    <div class="change-jp">スラッシュコマンド後のプロンプト停止を修正</div>
-    <div class="change-note">Up-arrow history retrieval works correctly</div>
+    <div class="change-en">Fixed prompts getting stuck in queue after slash commands</div>
+    <div class="change-jp">スラッシュコマンド後のプロンプトキュー問題を修正</div>
+    <div class="change-note">特定のスラッシュコマンド実行後にプロンプトがキューに引っかかり、上矢印で取得できない問題を修正しました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed Python Agent SDK MCP server startup</div>
-    <div class="change-jp">Python Agent SDK の MCP サーバー起動を修正</div>
-    <div class="change-note">type:&#39;sdk&#39; servers from --mcp-config no longer dropped</div>
+    <div class="change-en">Fixed Python Agent SDK dropping type:&#39;sdk&#39; MCP servers on startup</div>
+    <div class="change-jp">Python Agent SDKのMCPサーバー削除を修正</div>
+    <div class="change-note">--mcp-configで渡されたtype:&#39;sdk&#39; MCPサーバーが起動時に削除される問題を修正しました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed raw key sequences over SSH and VS Code</div>
-    <div class="change-jp">SSHおよびVS Code統合ターミナルのキー入力を修正</div>
-    <div class="change-note">Key sequences now display correctly</div>
+    <div class="change-en">Fixed raw key sequences appearing when running over SSH</div>
+    <div class="change-jp">SSH実行時の生のキーシーケンス表示を修正</div>
+    <div class="change-note">SSHまたはVS Code統合ターミナルで実行している場合に生のキーシーケンスがプロンプトに表示される問題を修正しました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed Remote Control session status</div>
-    <div class="change-jp">リモートコントロールセッションのステータスを修正</div>
-    <div class="change-note">No longer stuck on &#39;Requires Action&#39; after permission resolved</div>
+    <div class="change-en">Fixed Remote Control session stuck on &#39;Requires Action&#39;</div>
+    <div class="change-jp">リモートコントロールセッションのステータス問題を修正</div>
+    <div class="change-note">パーミッションが解決された後もRemote Controlセッションのステータスが「要アクション」で固定されていた問題を修正しました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed typeahead intercepting shift/meta+enter</div>
-    <div class="change-jp">typeahead による shift/meta+enter インターセプトを修正</div>
-    <div class="change-note">Newlines insert correctly without typeahead interference</div>
+    <div class="change-en">Fixed shift+enter and meta+enter intercepted by typeahead suggestions</div>
+    <div class="change-jp">shift+enterとmeta+enterの入力問題を修正</div>
+    <div class="change-note">typeahead提案によってshift+enterとmeta+enterが中断され、改行が挿入できない問題を修正しました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed stale content during streaming scroll</div>
-    <div class="change-jp">ストリーミング中のスクロール時に古いコンテンツが表示される問題を修正</div>
-    <div class="change-note">Content correctly updates while scrolling</div>
+    <div class="change-en">Fixed stale content bleeding through when scrolling up during streaming</div>
+    <div class="change-jp">スクロール時の古いコンテンツ表示を修正</div>
+    <div class="change-note">ストリーミング中にスクロールアップした場合に古いコンテンツが表示される問題を修正しました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed terminal keyboard mode with Ghostty/Kitty/WezTerm</div>
-    <div class="change-jp">Ghostty/Kitty/WezTermのターミナルキーボードモードを修正</div>
-    <div class="change-note">Enhanced keyboard mode exits correctly; Ctrl+C/D work after quit</div>
+    <div class="change-en">Fixed terminal left in enhanced keyboard mode after exit</div>
+    <div class="change-jp">終了後のターミナルキーボードモード問題を修正</div>
+    <div class="change-note">Ghostty、Kitty、WezTermなどのKittyキーボードプロトコル対応ターミナルで終了後にキーボードモードが残っていた問題を修正しました。</div>
   </div>
-</div><div class="cat-header" style="color:#9a6700;background:#fff8c5;">⚡ パフォーマンス<span class="cat-count">4件</span></div>
+</div><div class="cat-header" style="color:#9a6700;background:#fff8c5;">⚡ パフォーマンス<span class="cat-count">3件</span></div>
 <div class="change-item">
   <div class="change-icon">⚡</div>
   <div class="change-body">
-    <div class="change-en">Improved @-mention file autocomplete performance</div>
-    <div class="change-jp">@メンション ファイルオートコンプリートの高速化</div>
-    <div class="change-note">Faster autocomplete on large repositories</div>
-  </div>
-</div>
-<div class="change-item">
-  <div class="change-icon">⚡</div>
-  <div class="change-body">
-    <div class="change-en">Improved PowerShell dangerous command detection</div>
-    <div class="change-jp">PowerShell危険コマンド検出の改善</div>
-    <div class="change-note">More efficient unsafe command detection</div>
+    <div class="change-en">Improved @-mention file autocomplete performance on large repositories</div>
+    <div class="change-jp">@メンション自動補完のパフォーマンス向上</div>
+    <div class="change-note">大規模なリポジトリでの@メンションファイル自動補完のパフォーマンスが改善されました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">⚡</div>
   <div class="change-body">
-    <div class="change-en">Improved scroll performance for large transcripts</div>
-    <div class="change-jp">大規模トランスクリプトのスクロール性能向上</div>
-    <div class="change-note">Replaced WASM yoga-layout with pure TypeScript implementation</div>
+    <div class="change-en">Improved scroll performance with large transcripts</div>
+    <div class="change-jp">大規模トランスクリプトのスクロールパフォーマンス向上</div>
+    <div class="change-note">WASM yoga-layoutを純粋なTypeScript実装に置き換えることで、大規模なトランスクリプトのスクロールパフォーマンスが改善されました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">⚡</div>
   <div class="change-body">
-    <div class="change-en">Reduced UI stutter on large sessions</div>
-    <div class="change-jp">大規模セッションのUI遅延を削減</div>
-    <div class="change-note">Compaction triggers more efficiently</div>
+    <div class="change-en">Reduced UI stutter when compaction triggers on large sessions</div>
+    <div class="change-jp">大規模セッションのUI速度低下を軽減</div>
+    <div class="change-note">大規模なセッションで圧縮がトリガーされた場合のUIのカクつきが軽減されました。</div>
   </div>
 </div><div class="cat-header" style="color:#bc4c00;background:#ffd8b5;">🔒 セキュリティ<span class="cat-count">1件</span></div>
 <div class="change-item">
   <div class="change-icon">🔒</div>
   <div class="change-body">
-    <div class="change-en">Organization policy enforcement for plugins</div>
-    <div class="change-jp">プラグイン制限の組織ポリシー適用</div>
-    <div class="change-note">Blocked plugins hidden from marketplace and cannot be installed</div>
+    <div class="change-en">Improved PowerShell dangerous command detection</div>
+    <div class="change-jp">PowerShell危険コマンド検出の改善</div>
+    <div class="change-note">PowerShellの危険コマンド検出機能が改善されました。</div>
   </div>
 </div>
-    <div class="summary-bar"><span class="sum-pill">✨ 新機能 8件</span><span class="sum-pill">🐛 バグ修正 17件</span><span class="sum-pill">⚡ パフォーマンス 4件</span><span class="sum-pill">🔒 セキュリティ 1件</span></div>
+    <div class="summary-bar"><span class="sum-pill">✨ 新機能 9件</span><span class="sum-pill">🐛 バグ修正 17件</span><span class="sum-pill">⚡ パフォーマンス 3件</span><span class="sum-pill">🔒 セキュリティ 1件</span></div>
     <a class="github-btn" href="https://github.com/anthropics/claude-code/releases/tag/v2.1.85" target="_blank">GitHub リリースページを見る →</a>
   </div>
 </main>
