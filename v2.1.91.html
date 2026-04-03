@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Claude Code v2.1.91 リリースノート</title>
+<style>
+:root{--bg:#f6f8fa;--bg2:#fff;--bg3:#f0f2f5;--border:#d0d7de;--text:#1f2328;--text2:#57606a;--accent:#0969da;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI','Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:15px;}
+.site-header{background:var(--bg2);border-bottom:1px solid var(--border);padding:24px;text-align:center;position:sticky;top:0;z-index:10;box-shadow:0 1px 6px rgba(0,0,0,.06);}
+.site-header h1{font-size:1.5rem;font-weight:700;}
+.site-header h1 .brand{color:var(--accent);}
+.site-header .meta{margin-top:6px;font-size:.85rem;color:var(--text2);}
+.back-link{display:inline-block;margin-top:8px;font-size:.82rem;color:var(--accent);text-decoration:none;}
+.back-link:hover{text-decoration:underline;}
+.container{max-width:860px;margin:24px auto 60px;padding:0 16px;}
+.version-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.05);}
+.card-header{background:#e8f3ff;border-bottom:2px solid var(--accent);padding:18px 22px;}
+.card-header h2{font-size:1.4rem;font-weight:700;}
+.card-header .subtitle{margin-top:4px;font-size:.85rem;color:var(--text2);}
+.cat-header{display:flex;align-items:center;justify-content:space-between;padding:10px 22px;font-weight:700;font-size:1rem;border-bottom:1px solid var(--border);}
+.cat-count{font-size:.78rem;font-weight:600;background:rgba(0,0,0,.07);border-radius:20px;padding:2px 10px;}
+.change-item{display:flex;align-items:flex-start;gap:12px;padding:10px 22px;border-bottom:1px solid var(--bg3);}
+.change-item:last-child{border-bottom:none;}
+.change-item:hover{background:var(--bg3);}
+.change-icon{font-size:1.2rem;line-height:1.6;flex-shrink:0;width:26px;text-align:center;}
+.change-body{flex:1;min-width:0;}
+.change-en{font-size:.82rem;color:var(--text2);margin-bottom:2px;}
+.change-jp{font-weight:600;font-size:.95rem;}
+.change-note{margin-top:3px;font-size:.83rem;color:var(--text2);line-height:1.5;}
+.summary-bar{display:flex;flex-wrap:wrap;gap:8px;padding:12px 22px;background:var(--bg3);border-top:1px solid var(--border);}
+.sum-pill{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:2px 10px;font-size:.78rem;color:var(--text2);}
+.github-btn{display:block;text-align:center;padding:12px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;font-size:.9rem;}
+.github-btn:hover{background:#0860c8;}
+footer{text-align:center;padding:24px;font-size:.8rem;color:var(--text2);border-top:1px solid var(--border);background:var(--bg2);}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <h1><span class="brand">Claude Code</span> v2.1.91 リリースノート</h1>
+  <div class="meta">2026年4月2日 ｜ 全13件の変更</div>
+  <a class="back-link" href="index.html">← バージョン一覧に戻る</a>
+</header>
+<main class="container">
+  <div class="version-card">
+    <div class="card-header">
+      <h2>🚀 Claude Code v2.1.91 リリース</h2>
+      <div class="subtitle">2026年4月2日</div>
+    </div>
+    <div class="cat-header" style="color:#0969da;background:#ddf4ff;">✨ 新機能<span class="cat-count">6件</span></div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">MCP tool result persistence override support</div>
+    <div class="change-jp">MCPツール結果の永続化上限をオーバーライド可能に</div>
+    <div class="change-note">_meta[&quot;anthropic/maxResultSizeChars&quot;]により最大500KBまでDBスキーマなどの大きな結果を制限なく通過させられるようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">disableSkillShellExecution setting</div>
+    <div class="change-jp">スキルのシェル実行を無効化する設定を追加</div>
+    <div class="change-note">スキル、カスタムスラッシュコマンド、プラグインコマンドのインラインシェル実行を無効化できるようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Multi-line prompt support in deep links</div>
+    <div class="change-jp">ディープリンクでの複数行プロンプト対応</div>
+    <div class="change-note">claude-cli://open?q=でエンコードされた改行%0Aが拒否されなくなり、複数行プロンプトに対応しました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Plugin executables support</div>
+    <div class="change-jp">プラグインでbin/フォルダの実行ファイルをサポート</div>
+    <div class="change-note">プラグインはbin/フォルダ内の実行ファイルをBashツールから直接コマンドとして呼び出せるようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">/feedback command improved</div>
+    <div class="change-jp">/feedbackコマンドの改善</div>
+    <div class="change-note">スラッシュメニューから消えるのではなく、利用不可な理由を説明するようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Improved /claude-api skill guidance</div>
+    <div class="change-jp">/claude-apiスキルの案内を改善</div>
+    <div class="change-note">エージェント設計パターン、ツール表面の決定、コンテキスト管理、キャッシング戦略に関する案内が充実しました。</div>
+  </div>
+</div><div class="cat-header" style="color:#cf222e;background:#ffebe9;">🐛 バグ修正<span class="cat-count">5件</span></div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed transcript chain breaks on --resume</div>
+    <div class="change-jp">--resumeでのトランスクリプトチェーン断裂を修正</div>
+    <div class="change-note">非同期トランスクリプト書き込み失敗時に会話履歴が失われる可能性があった問題を修正しました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed cmd+delete behavior across terminals</div>
+    <div class="change-jp">複数のターミナルでのcmd+delete動作を修正</div>
+    <div class="change-note">iTerm2、kitty、WezTerm、Ghostty、Windows TerminalでのCmd+Delete行頭削除の問題を修正しました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed plan file tracking in remote sessions</div>
+    <div class="change-jp">リモートセッションのプランファイル追跡を修正</div>
+    <div class="change-note">コンテナ再起動後にプランファイルを見失い、プラン編集時に権限プロンプトが表示される問題を修正しました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed JSON schema validation</div>
+    <div class="change-jp">JSON スキーマ検証を修正</div>
+    <div class="change-note">settings.jsonのpermissions.defaultMode: &quot;auto&quot;に関するJSON スキーマ検証の問題を修正しました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed Windows version cleanup</div>
+    <div class="change-jp">Windowsバージョンクリーンアップを修正</div>
+    <div class="change-note">アクティブなバージョンのロールバックコピーを保護していなかった問題を修正しました。</div>
+  </div>
+</div><div class="cat-header" style="color:#9a6700;background:#fff8c5;">⚡ パフォーマンス<span class="cat-count">2件</span></div>
+<div class="change-item">
+  <div class="change-icon">⚡</div>
+  <div class="change-body">
+    <div class="change-en">Faster stripAnsi on Bun</div>
+    <div class="change-jp">Bun上でのstripAnsi高速化</div>
+    <div class="change-note">Bun.stripANSIのルーティングにより、Bun環境でのストリップAnsi処理が高速化されました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">⚡</div>
+  <div class="change-body">
+    <div class="change-en">Edit tool token optimization</div>
+    <div class="change-jp">Editツールのトークン最適化</div>
+    <div class="change-note">old_stringアンカーを短縮化し、出力トークン数を削減しました。</div>
+  </div>
+</div>
+    <div class="summary-bar"><span class="sum-pill">✨ 新機能 6件</span><span class="sum-pill">🐛 バグ修正 5件</span><span class="sum-pill">⚡ パフォーマンス 2件</span></div>
+    <a class="github-btn" href="https://github.com/anthropics/claude-code/releases/tag/v2.1.91" target="_blank">GitHub リリースページを見る →</a>
+  </div>
+</main>
+<footer>Claude Code リリースノート 日本語解説 | 自動生成</footer>
+</body>
+</html>
