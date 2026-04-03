@@ -52,105 +52,105 @@ footer{text-align:center;padding:24px;font-size:.8rem;color:var(--text2);border-
 <div class="change-item">
   <div class="change-icon">✨</div>
   <div class="change-body">
-    <div class="change-en">MCP tool result persistence override support</div>
-    <div class="change-jp">MCPツール結果の永続化上限をオーバーライド可能に</div>
-    <div class="change-note">_meta[&quot;anthropic/maxResultSizeChars&quot;]により最大500KBまでDBスキーマなどの大きな結果を制限なく通過させられるようになりました。</div>
+    <div class="change-en">Added MCP tool result persistence override via _meta annotation (up to 500K)</div>
+    <div class="change-jp">MCP ツール結果の永続化オーバーライドを追加 (_meta アノテーション対応、最大 500K)</div>
+    <div class="change-note">DB スキーマなど大きな結果がトランケーションなしで通過できるようになりました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">✨</div>
   <div class="change-body">
-    <div class="change-en">disableSkillShellExecution setting</div>
-    <div class="change-jp">スキルのシェル実行を無効化する設定を追加</div>
-    <div class="change-note">スキル、カスタムスラッシュコマンド、プラグインコマンドのインラインシェル実行を無効化できるようになりました。</div>
+    <div class="change-en">Added disableSkillShellExecution setting to disable inline shell execution</div>
+    <div class="change-jp">スキルのシェル実行を無効にする設定を追加</div>
+    <div class="change-note">スキル、カスタムスラッシュコマンド、プラグインコマンド内のインラインシェル実行を制御できます。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">✨</div>
   <div class="change-body">
-    <div class="change-en">Multi-line prompt support in deep links</div>
-    <div class="change-jp">ディープリンクでの複数行プロンプト対応</div>
-    <div class="change-note">claude-cli://open?q=でエンコードされた改行%0Aが拒否されなくなり、複数行プロンプトに対応しました。</div>
+    <div class="change-en">Added support for multi-line prompts in claude-cli deep links</div>
+    <div class="change-jp">claude-cli ディープリンクで複数行プロンプトをサポート</div>
+    <div class="change-note">エンコードされた改行 (%0A) がディープリンク内で正しく処理されるようになりました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">✨</div>
   <div class="change-body">
-    <div class="change-en">Plugin executables support</div>
-    <div class="change-jp">プラグインでbin/フォルダの実行ファイルをサポート</div>
-    <div class="change-note">プラグインはbin/フォルダ内の実行ファイルをBashツールから直接コマンドとして呼び出せるようになりました。</div>
+    <div class="change-en">Plugins can now ship executables under bin/ directory</div>
+    <div class="change-jp">プラグインが bin/ ディレクトリの実行可能ファイルをサポート</div>
+    <div class="change-note">Bash ツールからベアコマンドとして実行できるようになります。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">✨</div>
   <div class="change-body">
-    <div class="change-en">/feedback command improved</div>
-    <div class="change-jp">/feedbackコマンドの改善</div>
-    <div class="change-note">スラッシュメニューから消えるのではなく、利用不可な理由を説明するようになりました。</div>
+    <div class="change-en">/feedback now explains why it&#39;s unavailable instead of disappearing</div>
+    <div class="change-jp">/feedback コマンドが利用不可な理由を説明するように改善</div>
+    <div class="change-note">スラッシュメニューから単に消えるのではなく、理由を表示するようになりました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">✨</div>
   <div class="change-body">
-    <div class="change-en">Improved /claude-api skill guidance</div>
-    <div class="change-jp">/claude-apiスキルの案内を改善</div>
-    <div class="change-note">エージェント設計パターン、ツール表面の決定、コンテキスト管理、キャッシング戦略に関する案内が充実しました。</div>
+    <div class="change-en">Improved /claude-api skill guidance for agent design patterns</div>
+    <div class="change-jp">/claude-api スキルのガイダンスをエージェント設計パターンで改善</div>
+    <div class="change-note">ツール設計、コンテキスト管理、キャッシング戦略のベストプラクティスが追加されました。</div>
   </div>
 </div><div class="cat-header" style="color:#cf222e;background:#ffebe9;">🐛 バグ修正<span class="cat-count">5件</span></div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed transcript chain breaks on --resume</div>
-    <div class="change-jp">--resumeでのトランスクリプトチェーン断裂を修正</div>
-    <div class="change-note">非同期トランスクリプト書き込み失敗時に会話履歴が失われる可能性があった問題を修正しました。</div>
+    <div class="change-en">Fixed transcript chain breaks on --resume losing conversation history</div>
+    <div class="change-jp">--resume 時のトランスクリプトチェーンブレークを修正</div>
+    <div class="change-note">非同期トランスクリプト書き込みの失敗による会話履歴の喪失を防ぎました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed cmd+delete behavior across terminals</div>
-    <div class="change-jp">複数のターミナルでのcmd+delete動作を修正</div>
-    <div class="change-note">iTerm2、kitty、WezTerm、Ghostty、Windows TerminalでのCmd+Delete行頭削除の問題を修正しました。</div>
+    <div class="change-en">Fixed cmd+delete key behavior on multiple terminal emulators</div>
+    <div class="change-jp">複数のターミナルエミュレータで cmd+delete キーの動作を修正</div>
+    <div class="change-note">iTerm2、kitty、WezTerm、Ghostty、Windows Terminal で正しく動作するようになりました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed plan file tracking in remote sessions</div>
-    <div class="change-jp">リモートセッションのプランファイル追跡を修正</div>
-    <div class="change-note">コンテナ再起動後にプランファイルを見失い、プラン編集時に権限プロンプトが表示される問題を修正しました。</div>
+    <div class="change-en">Fixed plan mode in remote sessions losing plan file after container restart</div>
+    <div class="change-jp">リモートセッションのプランモードがコンテナ再起動後にプランファイルを失う問題を修正</div>
+    <div class="change-note">プラン編集時のパーミッションプロンプトと空のプラン承認モーダルの問題も解決されました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed JSON schema validation</div>
-    <div class="change-jp">JSON スキーマ検証を修正</div>
-    <div class="change-note">settings.jsonのpermissions.defaultMode: &quot;auto&quot;に関するJSON スキーマ検証の問題を修正しました。</div>
+    <div class="change-en">Fixed JSON schema validation for permissions.defaultMode setting</div>
+    <div class="change-jp">settings.json の permissions.defaultMode JSON スキーマ検証を修正</div>
+    <div class="change-note">&quot;auto&quot; 値の検証が正しく機能するようになりました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed Windows version cleanup</div>
-    <div class="change-jp">Windowsバージョンクリーンアップを修正</div>
-    <div class="change-note">アクティブなバージョンのロールバックコピーを保護していなかった問題を修正しました。</div>
+    <div class="change-en">Fixed Windows version cleanup not protecting active version&#39;s rollback copy</div>
+    <div class="change-jp">Windows バージョンクリーンアップがアクティブバージョンを保護しない問題を修正</div>
+    <div class="change-note">ロールバックコピーが削除されずに保護されるようになりました。</div>
   </div>
 </div><div class="cat-header" style="color:#9a6700;background:#fff8c5;">⚡ パフォーマンス<span class="cat-count">2件</span></div>
 <div class="change-item">
   <div class="change-icon">⚡</div>
   <div class="change-body">
-    <div class="change-en">Faster stripAnsi on Bun</div>
-    <div class="change-jp">Bun上でのstripAnsi高速化</div>
-    <div class="change-note">Bun.stripANSIのルーティングにより、Bun環境でのストリップAnsi処理が高速化されました。</div>
+    <div class="change-en">Improved performance: faster stripAnsi on Bun by routing through Bun.stripANSI</div>
+    <div class="change-jp">Bun での stripAnsi パフォーマンスを向上 (Bun.stripANSI に経路変更)</div>
+    <div class="change-note">ANSI コード削除処理の速度が改善されました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">⚡</div>
   <div class="change-body">
-    <div class="change-en">Edit tool token optimization</div>
-    <div class="change-jp">Editツールのトークン最適化</div>
-    <div class="change-note">old_stringアンカーを短縮化し、出力トークン数を削減しました。</div>
+    <div class="change-en">Edit tool now uses shorter old_string anchors, reducing output tokens</div>
+    <div class="change-jp">Edit ツールが短い old_string アンカーを使用、出力トークンを削減</div>
+    <div class="change-note">ファイル編集時の出力効率が向上しました。</div>
   </div>
 </div>
     <div class="summary-bar"><span class="sum-pill">✨ 新機能 6件</span><span class="sum-pill">🐛 バグ修正 5件</span><span class="sum-pill">⚡ パフォーマンス 2件</span></div>
