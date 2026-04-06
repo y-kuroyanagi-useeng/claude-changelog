@@ -48,157 +48,157 @@ footer{text-align:center;padding:24px;font-size:.8rem;color:var(--text2);border-
       <h2>🚀 Claude Code v2.1.92 リリース</h2>
       <div class="subtitle">2026年4月4日</div>
     </div>
-    <div class="cat-header" style="color:#0969da;background:#ddf4ff;">✨ 新機能<span class="cat-count">7件</span></div>
+    <div class="cat-header" style="color:#0969da;background:#ddf4ff;">✨ 新機能<span class="cat-count">6件</span></div>
 <div class="change-item">
   <div class="change-icon">✨</div>
   <div class="change-body">
     <div class="change-en">Added forceRemoteSettingsRefresh policy setting</div>
-    <div class="change-jp">forceRemoteSettingsRefresh ポリシー設定を追加</div>
-    <div class="change-note">リモート管理設定が最新取得されるまでCLI起動をブロック、取得失敗時は終了</div>
+    <div class="change-jp">forceRemoteSettingsRefreshポリシー設定を追加</div>
+    <div class="change-note">このポリシーが設定されると、CLIはリモート管理設定が新しくフェッチされるまでスタートアップをブロックし、フェッチに失敗するとexitします。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">✨</div>
   <div class="change-body">
     <div class="change-en">Added interactive Bedrock setup wizard</div>
-    <div class="change-jp">Bedrockインタラクティブセットアップウィザードを追加</div>
-    <div class="change-note">ログイン画面から選択可能。AWS認証、リージョン設定、認証情報検証、モデル選定をガイド</div>
+    <div class="change-jp">インタラクティブなBedrock設定ウィザードを追加</div>
+    <div class="change-note">ログイン画面から「3rd-party platform」選択時にアクセス可能で、AWS認証、リージョン設定、認証情報検証、モデルピニングをガイドします。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">✨</div>
   <div class="change-body">
     <div class="change-en">Added per-model and cache-hit breakdown to /cost</div>
-    <div class="change-jp">/costにモデル別およびキャッシュヒット内訳を追加</div>
-    <div class="change-note">サブスクリプション利用者向け機能</div>
+    <div class="change-jp">/costコマンドにモデル別およびキャッシュヒット内訳を追加</div>
+    <div class="change-note">サブスクリプションユーザーはモデルごとのコスト内訳とキャッシュヒット情報が表示されるようになりました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">✨</div>
   <div class="change-body">
     <div class="change-en">/release-notes is now an interactive version picker</div>
-    <div class="change-jp">/release-notesがインタラクティブ版選択に対応</div>
-    <div class="change-note">バージョン選択が可能に</div>
+    <div class="change-jp">/release-notesがインタラクティブなバージョンピッカーになりました</div>
+    <div class="change-note">ユーザーはリリースノートで異なるバージョンを選択して確認できるようになりました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">✨</div>
   <div class="change-body">
-    <div class="change-en">Remote Control session names now use hostname as default prefix</div>
-    <div class="change-jp">RemoteControlセッション名がホスト名をデフォルトプレフィックスに</div>
-    <div class="change-note">--remote-control-session-name-prefixフラグでカスタマイズ可能</div>
+    <div class="change-en">Remote Control session names now use hostname as default</div>
+    <div class="change-jp">Remote Controlセッション名がホスト名をデフォルトプレフィックスに使用</div>
+    <div class="change-note">例えば『myhost-graceful-unicorn』のような形式になり、--remote-control-session-name-prefixで上書き可能です。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">✨</div>
   <div class="change-body">
-    <div class="change-en">Pro users see footer hint when prompt cache expires</div>
-    <div class="change-jp">Proユーザーがプロンプトキャッシュ失効時にフッターヒントを表示</div>
-    <div class="change-note">次のターンで送信される未キャッシュトークン数を表示</div>
-  </div>
-</div>
-<div class="change-item">
-  <div class="change-icon">✨</div>
-  <div class="change-body">
-    <div class="change-en">Linux sandbox now ships apply-seccomp helper</div>
-    <div class="change-jp">Linuxサンドボックスにapply-seccomphelpersを追加</div>
-    <div class="change-note">npmおよびネイティブビルドでunix-socketブロッキングを復元</div>
+    <div class="change-en">Pro users see footer hint about prompt cache expiration</div>
+    <div class="change-jp">ProユーザーがプロンプトキャッシュFooter hintを確認</div>
+    <div class="change-note">セッション復帰時にキャッシュが期限切れの場合、次のターンで送信されるトークン数の概算が表示されます。</div>
   </div>
 </div><div class="cat-header" style="color:#cf222e;background:#ffebe9;">🐛 バグ修正<span class="cat-count">11件</span></div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed subagent spawning permanently failing with pane count error</div>
-    <div class="change-jp">サブエージェント生成の永続的な失敗を修正</div>
-    <div class="change-note">tmuxウィンドウ削除時の「ペイン数確定不可」エラーを解決</div>
+    <div class="change-en">Fixed subagent spawning failing after tmux window changes</div>
+    <div class="change-jp">tmuxウィンドウ削除後のサブエージェント起動失敗を修正</div>
+    <div class="change-note">長時間実行中のセッション中にtmuxウィンドウが削除または番号が変更された後、『Could not determine pane count』エラーで起動に失敗する問題を解決しました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
     <div class="change-en">Fixed prompt-type Stop hooks incorrectly failing</div>
-    <div class="change-jp">プロンプトタイプStophooksの誤動作を修正</div>
-    <div class="change-note">小規模モデルがok:falseを返した場合の失敗を解決、preventContinuation:trueセマンティクスを復元</div>
+    <div class="change-jp">prompt-type Stop hooksが誤って失敗する問題を修正</div>
+    <div class="change-note">小規模な高速モデルがok:falseを返したときの処理を修正し、preventContinuation:trueのセマンティクスを復元しました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed tool input validation failures with JSON-encoded strings</div>
-    <div class="change-jp">ツール入力検証エラーを修正</div>
-    <div class="change-note">ストリーミング時の配列/オブジェクトフィールドのJSONエンコード文字列処理を改善</div>
+    <div class="change-en">Fixed tool input validation failures with streaming</div>
+    <div class="change-jp">ストリーミング時のツール入力バリデーション失敗を修正</div>
+    <div class="change-note">ストリーミングがJSONエンコード文字列としてarray/objectフィールドを発行するときの検証失敗を修正しました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed API 400 error from extended thinking with whitespace blocks</div>
-    <div class="change-jp">拡張思考によるAPI400エラーを修正</div>
-    <div class="change-note">空白のみのテキストブロックが含まれる場合の問題を解決</div>
+    <div class="change-en">Fixed API 400 error from extended thinking</div>
+    <div class="change-jp">拡張思考によるAPI 400エラーを修正</div>
+    <div class="change-note">拡張思考が実質的なコンテンツと共に空白のみのテキストブロックを生成するときに発生していたエラーを修正しました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
     <div class="change-en">Fixed accidental feedback survey submissions</div>
-    <div class="change-jp">フィードバックサーベイの意図しない送信を修正</div>
-    <div class="change-note">オートパイロットキープレスと連続プロンプト数字の衝突を防止</div>
+    <div class="change-jp">意図しないフィードバックサーベイ送信を修正</div>
+    <div class="change-note">オートパイロットキーに誘発された事故的なサーベイ送信と連続プロンプト入力の数字衝突による誤送信を修正しました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed misleading esc hint in fullscreen mode</div>
-    <div class="change-jp">フルスクリーンモードの「esc」ヒントを修正</div>
-    <div class="change-note">テキスト選択時の誤解を招く「esctointerrupt」ヒントを改善</div>
+    <div class="change-en">Fixed misleading &#39;esc to interrupt&#39; hint</div>
+    <div class="change-jp">『esc to interrupt』ヒントの誤解を招く表示を修正</div>
+    <div class="change-note">フルスクリーンモード中にテキスト選択が存在する場合の誤ったescapeキーのヒント表示を修正しました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed Homebrew install update prompts release channel</div>
+    <div class="change-en">Fixed Homebrew install update prompts</div>
     <div class="change-jp">Homebrewインストール更新プロンプトを修正</div>
-    <div class="change-note">リリースチャネル判定を修正（claude-code→stable、claude-code@latest→latest）</div>
+    <div class="change-note">caskのリリースチャネルを正しく使用するように修正（claude-code → stable、claude-code@latest → latest）。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed ctrl+e jumping to next line when at end of line</div>
-    <div class="change-jp">ctrl+eの行末からの不正なジャンプを修正</div>
-    <div class="change-note">複数行プロンプトで既に行末にあるときの挙動を修正</div>
+    <div class="change-en">Fixed ctrl+e jumping to next line in multiline prompts</div>
+    <div class="change-jp">複数行プロンプトでのctrl+eの次行へのジャンプを修正</div>
+    <div class="change-note">既に行末にいるとき、ctrl+eが誤って次の行の末尾にジャンプする問題を修正しました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed message appearing at two positions when scrolling up</div>
-    <div class="change-jp">スクロール時にメッセージが2箇所に表示される問題を修正</div>
-    <div class="change-note">iTerm2、Ghostty等のDEC2026対応ターミナルで発生</div>
+    <div class="change-en">Fixed message duplication when scrolling up</div>
+    <div class="change-jp">スクロール時のメッセージ重複を修正</div>
+    <div class="change-note">フルスクリーンモード（iTerm2、Ghosttyなど）でスクロールアップ時に同じメッセージが2箇所に表示される問題を修正しました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed idle-return hint showing cumulative session tokens</div>
-    <div class="change-jp">アイドル復帰ヒントのトークン表示を修正</div>
-    <div class="change-note">現在のコンテキストサイズを表示するよう修正</div>
+    <div class="change-en">Fixed idle-return token count hint</div>
+    <div class="change-jp">アイドル復帰時のトークンカウントヒントを修正</div>
+    <div class="change-note">アイドル復帰時の『tokens saved』ヒントがセッション累積トークン数ではなく現在のコンテキストサイズを表示するように修正しました。</div>
   </div>
 </div>
 <div class="change-item">
   <div class="change-icon">🐛</div>
   <div class="change-body">
-    <div class="change-en">Fixed plugin MCP servers stuck connecting on session start</div>
-    <div class="change-jp">プラグインMCPサーバーの接続待ち問題を修正</div>
-    <div class="change-note">未認証のclaude.aiコネクタが重複する場合の問題を解決</div>
+    <div class="change-en">Fixed plugin MCP servers stuck &#39;connecting&#39;</div>
+    <div class="change-jp">プラグインMCPサーバーが『connecting』状態で停止する問題を修正</div>
+    <div class="change-note">セッション開始時に、認証されていないclaude.aiコネクタを複製するプラグインMCPサーバーが接続できない問題を修正しました。</div>
   </div>
-</div><div class="cat-header" style="color:#9a6700;background:#fff8c5;">⚡ パフォーマンス<span class="cat-count">1件</span></div>
+</div><div class="cat-header" style="color:#9a6700;background:#fff8c5;">⚡ パフォーマンス<span class="cat-count">2件</span></div>
 <div class="change-item">
   <div class="change-icon">⚡</div>
   <div class="change-body">
     <div class="change-en">Improved Write tool diff computation speed</div>
-    <div class="change-jp">Writeツール差分計算速度を向上</div>
-    <div class="change-note">大きなファイルでの差分処理が60%高速化（タブ文字や特殊文字含む）</div>
+    <div class="change-jp">Writeツールの差分計算速度を改善</div>
+    <div class="change-note">大容量ファイル（タブや特殊文字を含むファイル）での差分計算速度が60%高速化されました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">⚡</div>
+  <div class="change-body">
+    <div class="change-en">Linux sandbox improvements</div>
+    <div class="change-jp">Linuxサンドボックスの改善</div>
+    <div class="change-note">apply-seccompヘルパーがnpmおよびネイティブビルドの両方に搭載され、Unixソケットブロッキングが復元されました。</div>
   </div>
 </div><div class="cat-header" style="color:#8250df;background:#fbefff;">⚠️ 破壊的変更<span class="cat-count">2件</span></div>
 <div class="change-item">
@@ -206,7 +206,7 @@ footer{text-align:center;padding:24px;font-size:.8rem;color:var(--text2);border-
   <div class="change-body">
     <div class="change-en">Removed /tag command</div>
     <div class="change-jp">/tagコマンドを削除</div>
-    <div class="change-note">廃止されたコマンド</div>
+    <div class="change-note">/tagコマンドは廃止されました。</div>
   </div>
 </div>
 <div class="change-item">
@@ -214,10 +214,10 @@ footer{text-align:center;padding:24px;font-size:.8rem;color:var(--text2);border-
   <div class="change-body">
     <div class="change-en">Removed /vim command</div>
     <div class="change-jp">/vimコマンドを削除</div>
-    <div class="change-note">vimモードは/config→EditormodeのEditormode設定で切り替え可能</div>
+    <div class="change-note">Vimモードは/config → Editor modeから切り替えるようになりました。</div>
   </div>
 </div>
-    <div class="summary-bar"><span class="sum-pill">✨ 新機能 7件</span><span class="sum-pill">🐛 バグ修正 11件</span><span class="sum-pill">⚡ パフォーマンス 1件</span><span class="sum-pill">⚠️ 破壊的変更 2件</span></div>
+    <div class="summary-bar"><span class="sum-pill">✨ 新機能 6件</span><span class="sum-pill">🐛 バグ修正 11件</span><span class="sum-pill">⚡ パフォーマンス 2件</span><span class="sum-pill">⚠️ 破壊的変更 2件</span></div>
     <a class="github-btn" href="https://github.com/anthropics/claude-code/releases/tag/v2.1.92" target="_blank">GitHub リリースページを見る →</a>
   </div>
 </main>
