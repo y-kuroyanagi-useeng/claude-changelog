@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Claude Code v2.1.94 リリースノート</title>
+<style>
+:root{--bg:#f6f8fa;--bg2:#fff;--bg3:#f0f2f5;--border:#d0d7de;--text:#1f2328;--text2:#57606a;--accent:#0969da;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI','Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:15px;}
+.site-header{background:var(--bg2);border-bottom:1px solid var(--border);padding:24px;text-align:center;position:sticky;top:0;z-index:10;box-shadow:0 1px 6px rgba(0,0,0,.06);}
+.site-header h1{font-size:1.5rem;font-weight:700;}
+.site-header h1 .brand{color:var(--accent);}
+.site-header .meta{margin-top:6px;font-size:.85rem;color:var(--text2);}
+.back-link{display:inline-block;margin-top:8px;font-size:.82rem;color:var(--accent);text-decoration:none;}
+.back-link:hover{text-decoration:underline;}
+.container{max-width:860px;margin:24px auto 60px;padding:0 16px;}
+.version-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.05);}
+.card-header{background:#e8f3ff;border-bottom:2px solid var(--accent);padding:18px 22px;}
+.card-header h2{font-size:1.4rem;font-weight:700;}
+.card-header .subtitle{margin-top:4px;font-size:.85rem;color:var(--text2);}
+.cat-header{display:flex;align-items:center;justify-content:space-between;padding:10px 22px;font-weight:700;font-size:1rem;border-bottom:1px solid var(--border);}
+.cat-count{font-size:.78rem;font-weight:600;background:rgba(0,0,0,.07);border-radius:20px;padding:2px 10px;}
+.change-item{display:flex;align-items:flex-start;gap:12px;padding:10px 22px;border-bottom:1px solid var(--bg3);}
+.change-item:last-child{border-bottom:none;}
+.change-item:hover{background:var(--bg3);}
+.change-icon{font-size:1.2rem;line-height:1.6;flex-shrink:0;width:26px;text-align:center;}
+.change-body{flex:1;min-width:0;}
+.change-en{font-size:.82rem;color:var(--text2);margin-bottom:2px;}
+.change-jp{font-weight:600;font-size:.95rem;}
+.change-note{margin-top:3px;font-size:.83rem;color:var(--text2);line-height:1.5;}
+.summary-bar{display:flex;flex-wrap:wrap;gap:8px;padding:12px 22px;background:var(--bg3);border-top:1px solid var(--border);}
+.sum-pill{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:2px 10px;font-size:.78rem;color:var(--text2);}
+.github-btn{display:block;text-align:center;padding:12px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;font-size:.9rem;}
+.github-btn:hover{background:#0860c8;}
+footer{text-align:center;padding:24px;font-size:.8rem;color:var(--text2);border-top:1px solid var(--border);background:var(--bg2);}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <h1><span class="brand">Claude Code</span> v2.1.94 リリースノート</h1>
+  <div class="meta">2026年4月7日 ｜ 全25件の変更</div>
+  <a class="back-link" href="index.html">← バージョン一覧に戻る</a>
+</header>
+<main class="container">
+  <div class="version-card">
+    <div class="card-header">
+      <h2>🚀 Claude Code v2.1.94 リリース</h2>
+      <div class="subtitle">2026年4月7日</div>
+    </div>
+    <div class="cat-header" style="color:#0969da;background:#ddf4ff;">✨ 新機能<span class="cat-count">5件</span></div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Added support for Amazon Bedrock powered by Mantle</div>
+    <div class="change-jp">Mantleベースの Amazon Bedrock サポートを追加</div>
+    <div class="change-note">CLAUDE_CODE_USE_MANTLE=1で有効化可能です。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Added compact Slack #channel header with clickable link for MCP tool</div>
+    <div class="change-jp">Slack MCP ツールにコンパクトチャンネルヘッダーを追加</div>
+    <div class="change-note">チャンネルリンクをクリックして直接移動できます。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Added keep-coding-instructions frontmatter field support for plugin output</div>
+    <div class="change-jp">keep-coding-instructions frontmatter フィールドサポートを追加</div>
+    <div class="change-note">プラグイン出力スタイルをカスタマイズできます。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Added hookSpecificOutput.sessionTitle to UserPromptSubmit hooks</div>
+    <div class="change-jp">UserPromptSubmit フックに hookSpecificOutput.sessionTitle を追加</div>
+    <div class="change-note">セッションタイトルをカスタマイズできます。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Added warning banner when settings.json files fail to parse</div>
+    <div class="change-jp">settings.json 解析失敗時の警告バナーを追加</div>
+    <div class="change-note">パーミッションルールが適用されていないことをユーザーに通知します。</div>
+  </div>
+</div><div class="cat-header" style="color:#cf222e;background:#ffebe9;">🐛 バグ修正<span class="cat-count">17件</span></div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed plugin skills using stable frontmatter name for invocation</div>
+    <div class="change-jp">プラグインスキルが frontmatter 名を invocation 名として使用</div>
+    <div class="change-note">インストール方法に関わらず安定した名前が使用されます。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed agents appearing stuck after 429 rate-limit response</div>
+    <div class="change-jp">429 レート制限後のエージェントハング状態を修正</div>
+    <div class="change-note">エラーが即座に表示されるようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed Console login on macOS silently failing with locked keychain</div>
+    <div class="change-jp">macOS コンソールログインの無音失敗を修正</div>
+    <div class="change-note">ロックされたキーチェーン時にエラーメッセージを表示します。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed plugin skill hooks in YAML frontmatter being silently ignored</div>
+    <div class="change-jp">YAML frontmatter のプラグインスキルフック無視問題を修正</div>
+    <div class="change-note">プラグインフックが正常に動作するようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed plugin hooks failing when CLAUDE_PLUGIN_ROOT was not set</div>
+    <div class="change-jp">CLAUDE_PLUGIN_ROOT が未設定時のプラグインフック失敗を修正</div>
+    <div class="change-note">環境変数の設定がなくても正常に動作します。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed ${CLAUDE_PLUGIN_ROOT} resolving to installed cache for local plugins</div>
+    <div class="change-jp">${CLAUDE_PLUGIN_ROOT} の解決パスを修正</div>
+    <div class="change-note">ローカルマーケットプレイスプラグインが正しくキャッシュされます。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed scrollback showing duplicate diffs and blank pages in long sessions</div>
+    <div class="change-jp">スクロールバックの重複表示と空白ページを修正</div>
+    <div class="change-note">長いセッションでの表示が改善されました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed multiline user prompts indenting wrapped lines incorrectly</div>
+    <div class="change-jp">複数行プロンプトのインデント問題を修正</div>
+    <div class="change-note">折り返し行が正しい位置に表示されます。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed Shift+Space inserting literal word &#39;space&#39; in search inputs</div>
+    <div class="change-jp">検索入力での Shift+Space 問題を修正</div>
+    <div class="change-note">スペース文字が正しく入力されるようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed hyperlinks opening two browser tabs in tmux terminals</div>
+    <div class="change-jp">tmux でのハイパーリンク二重オープンを修正</div>
+    <div class="change-note">xterm.js ベースのターミナルで正常に動作します。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed alt-screen rendering bug leaving compounding ghost lines</div>
+    <div class="change-jp">alt-screen レンダリングのゴーストラインを修正</div>
+    <div class="change-note">スクロール中のコンテンツ高さ変化に対応しました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed FORCE_HYPERLINK environment variable being ignored in settings.json</div>
+    <div class="change-jp">settings.json の FORCE_HYPERLINK 環境変数問題を修正</div>
+    <div class="change-note">環境変数が正常に適用されるようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed native terminal cursor not tracking selected tab for accessibility</div>
+    <div class="change-jp">ネイティブターミナルカーソルのタブ追跡を修正</div>
+    <div class="change-note">スクリーンリーダーとスクリーン拡大機能に対応しました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed Bedrock invocation of Sonnet 3.5 v2 with correct inference profile ID</div>
+    <div class="change-jp">Bedrock の Sonnet 3.5 v2 invocation を修正</div>
+    <div class="change-note">正しい推論プロファイル ID を使用するようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed SDK/print mode not preserving partial assistant response when interrupted</div>
+    <div class="change-jp">SDK/print モードの中断時レスポンス保存を修正</div>
+    <div class="change-note">会話履歴に部分的なアシスタント応答が保持されます。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed CJK and multibyte text corruption with U+FFFD in stream-json</div>
+    <div class="change-jp">stream-json の CJK 多バイト文字破損を修正</div>
+    <div class="change-note">UTF-8 シーケンス境界での破損が解決しました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed VSCode dropdown menus selecting wrong item during typing</div>
+    <div class="change-jp">VSCode ドロップダウンメニューの選択ミスを修正</div>
+    <div class="change-note">マウスがリスト上でも正確に動作するようになりました。</div>
+  </div>
+</div><div class="cat-header" style="color:#9a6700;background:#fff8c5;">⚡ パフォーマンス<span class="cat-count">2件</span></div>
+<div class="change-item">
+  <div class="change-icon">⚡</div>
+  <div class="change-body">
+    <div class="change-en">Improved --resume to directly resume sessions from other worktrees</div>
+    <div class="change-jp">--resume で同じリポジトリの別 worktree から直接再開</div>
+    <div class="change-note">cd コマンド出力の代わりに直接セッションを再開します。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">⚡</div>
+  <div class="change-body">
+    <div class="change-en">Reduced cold-open subprocess work on VSCode session start</div>
+    <div class="change-jp">VSCode 起動時のサブプロセス処理を削減</div>
+    <div class="change-note">起動パフォーマンスが向上しました。</div>
+  </div>
+</div><div class="cat-header" style="color:#8250df;background:#fbefff;">⚠️ 破壊的変更<span class="cat-count">1件</span></div>
+<div class="change-item">
+  <div class="change-icon">⚠️</div>
+  <div class="change-body">
+    <div class="change-en">Changed default effort level from medium to high for API-key and cloud users</div>
+    <div class="change-jp">デフォルト effort レベルを medium から high に変更</div>
+    <div class="change-note">/effort コマンドで制御できます。</div>
+  </div>
+</div>
+    <div class="summary-bar"><span class="sum-pill">✨ 新機能 5件</span><span class="sum-pill">🐛 バグ修正 17件</span><span class="sum-pill">⚡ パフォーマンス 2件</span><span class="sum-pill">⚠️ 破壊的変更 1件</span></div>
+    <a class="github-btn" href="https://github.com/anthropics/claude-code/releases/tag/v2.1.94" target="_blank">GitHub リリースページを見る →</a>
+  </div>
+</main>
+<footer>Claude Code リリースノート 日本語解説 | 自動生成</footer>
+</body>
+</html>
