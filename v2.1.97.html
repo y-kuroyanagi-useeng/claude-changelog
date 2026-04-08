@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Claude Code v2.1.97 リリースノート</title>
+<style>
+:root{--bg:#f6f8fa;--bg2:#fff;--bg3:#f0f2f5;--border:#d0d7de;--text:#1f2328;--text2:#57606a;--accent:#0969da;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI','Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:15px;}
+.site-header{background:var(--bg2);border-bottom:1px solid var(--border);padding:24px;text-align:center;position:sticky;top:0;z-index:10;box-shadow:0 1px 6px rgba(0,0,0,.06);}
+.site-header h1{font-size:1.5rem;font-weight:700;}
+.site-header h1 .brand{color:var(--accent);}
+.site-header .meta{margin-top:6px;font-size:.85rem;color:var(--text2);}
+.back-link{display:inline-block;margin-top:8px;font-size:.82rem;color:var(--accent);text-decoration:none;}
+.back-link:hover{text-decoration:underline;}
+.container{max-width:860px;margin:24px auto 60px;padding:0 16px;}
+.version-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.05);}
+.card-header{background:#e8f3ff;border-bottom:2px solid var(--accent);padding:18px 22px;}
+.card-header h2{font-size:1.4rem;font-weight:700;}
+.card-header .subtitle{margin-top:4px;font-size:.85rem;color:var(--text2);}
+.cat-header{display:flex;align-items:center;justify-content:space-between;padding:10px 22px;font-weight:700;font-size:1rem;border-bottom:1px solid var(--border);}
+.cat-count{font-size:.78rem;font-weight:600;background:rgba(0,0,0,.07);border-radius:20px;padding:2px 10px;}
+.change-item{display:flex;align-items:flex-start;gap:12px;padding:10px 22px;border-bottom:1px solid var(--bg3);}
+.change-item:last-child{border-bottom:none;}
+.change-item:hover{background:var(--bg3);}
+.change-icon{font-size:1.2rem;line-height:1.6;flex-shrink:0;width:26px;text-align:center;}
+.change-body{flex:1;min-width:0;}
+.change-en{font-size:.82rem;color:var(--text2);margin-bottom:2px;}
+.change-jp{font-weight:600;font-size:.95rem;}
+.change-note{margin-top:3px;font-size:.83rem;color:var(--text2);line-height:1.5;}
+.summary-bar{display:flex;flex-wrap:wrap;gap:8px;padding:12px 22px;background:var(--bg3);border-top:1px solid var(--border);}
+.sum-pill{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:2px 10px;font-size:.78rem;color:var(--text2);}
+.github-btn{display:block;text-align:center;padding:12px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;font-size:.9rem;}
+.github-btn:hover{background:#0860c8;}
+footer{text-align:center;padding:24px;font-size:.8rem;color:var(--text2);border-top:1px solid var(--border);background:var(--bg2);}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <h1><span class="brand">Claude Code</span> v2.1.97 リリースノート</h1>
+  <div class="meta">2026年4月8日 ｜ 全45件の変更</div>
+  <a class="back-link" href="index.html">← バージョン一覧に戻る</a>
+</header>
+<main class="container">
+  <div class="version-card">
+    <div class="card-header">
+      <h2>🚀 Claude Code v2.1.97 リリース</h2>
+      <div class="subtitle">2026年4月8日</div>
+    </div>
+    <div class="cat-header" style="color:#0969da;background:#ddf4ff;">✨ 新機能<span class="cat-count">16件</span></div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Focus view toggle with prompt and tool summary</div>
+    <div class="change-jp">フォーカスビュー機能の追加</div>
+    <div class="change-note">Ctrl+Oでプロンプト、ツール概要、差分統計を表示可能</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Status line refresh interval setting</div>
+    <div class="change-jp">ステータスライン自動更新の設定機能</div>
+    <div class="change-note">refreshInterval設定でステータスラインコマンドを定期実行可能</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Git worktree detection in status line</div>
+    <div class="change-jp">ステータスラインのGitワークツリー検出</div>
+    <div class="change-note">workspace.git_worktreeでリンク済みワークツリーを自動検出</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Live agent instance indicator in /agents</div>
+    <div class="change-jp">/agentsに実行中エージェント表示</div>
+    <div class="change-note">● N インジケータで動作中のサブエージェント数を表示</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Cedar policy file syntax highlighting</div>
+    <div class="change-jp">Cedarポリシーファイルの構文ハイライト</div>
+    <div class="change-note">.cedar および .cedarpolicy ファイルに対応</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Improved Accept Edits auto-approval for safe commands</div>
+    <div class="change-jp">Accept Editsの自動承認機能強化</div>
+    <div class="change-note">環境変数プレフィックスやプロセスラッパー付きコマンドを自動承認</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Auto-approve sandbox network access</div>
+    <div class="change-jp">サンドボックスネットワークアクセスの自動承認</div>
+    <div class="change-note">auto/bypass-permissions モードでネットワークアクセスプロンプトを自動承認</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Improved sandbox Mach lookup on macOS</div>
+    <div class="change-jp">macOSサンドボックスネットワーキング改善</div>
+    <div class="change-note">sandbox.network.allowMachLookupがmacOSで即座に反映</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Improved image compression for token budget</div>
+    <div class="change-jp">画像圧縮の最適化</div>
+    <div class="change-note">貼り付け・添付画像をReadツール同様に圧縮するよう統一</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Improved slash command completion after CJK punctuation</div>
+    <div class="change-jp">CJK句読点後のコマンド補完改善</div>
+    <div class="change-note">日本語・中国語入力後にスペースなしで/や@が使用可能に</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Improved Bridge session repo display</div>
+    <div class="change-jp">Bridgeセッション情報の表示改善</div>
+    <div class="change-note">claude.aiセッションカードにリポジトリ、ブランチ、ディレクトリを表示</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Improved footer layout with mode indicator</div>
+    <div class="change-jp">フッターレイアウトの改善</div>
+    <div class="change-note">インジケータがモードインジケータ行に留まるよう改善</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Improved context-low warning display</div>
+    <div class="change-jp">コンテキスト不足警告の改善</div>
+    <div class="change-note">永続行の代わりに一時的なフッター通知として表示</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Improved markdown blockquote continuous bar</div>
+    <div class="change-jp">マークダウン引用符の連続バー表示</div>
+    <div class="change-note">折り返し行でも左側の棒が連続して表示される</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Improved transcript accuracy with final token usage</div>
+    <div class="change-jp">トランスクリプトの正確性改善</div>
+    <div class="change-note">ブロック単位でストリーミング値の代わりに最終トークン使用量を記録</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Improved Bash tool OTEL tracing</div>
+    <div class="change-jp">BashツールのOELトレース改善</div>
+    <div class="change-note">サブプロセスがW3C TRACEPARENT環境変数を継承</div>
+  </div>
+</div><div class="cat-header" style="color:#cf222e;background:#ffebe9;">🐛 バグ修正<span class="cat-count">23件</span></div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed permission mode downgrade issue</div>
+    <div class="change-jp">--dangerously-skip-permissionsのダウングレードバグ修正</div>
+    <div class="change-note">保護パス編集後に誤ってaccept-editsモードにダウングレードされていた</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed permission rules with prototype property names</div>
+    <div class="change-jp">JavaScriptプロトタイププロパティ名の設定バグ修正</div>
+    <div class="change-note">toString等の名前を使用した権限ルールが無視されていた問題を解決</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed persistent managed-settings allow rules</div>
+    <div class="change-jp">マネージド設定ルール永続化バグ修正</div>
+    <div class="change-note">管理者が削除後もプロセス再起動まで有効状態が続いていた</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed additionalDirectories setting application</div>
+    <div class="change-jp">追加ディレクトリ設定の即時反映修正</div>
+    <div class="change-note">permissions.additionalDirectories変更がセッション中に反映されなかった</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed directory access revocation issue</div>
+    <div class="change-jp">ディレクトリアクセス失効の問題修正</div>
+    <div class="change-note">設定から削除したディレクトリへのアクセスが不正に失効していた</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed MCP OAuth metadata URL on token refresh</div>
+    <div class="change-jp">MCPトークン更新時のOAuthメタデータ処理修正</div>
+    <div class="change-note">ADFS等のIdPでトークン更新後にメタデータURLが無視されていた</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed rate-limit upgrade options disappearing</div>
+    <div class="change-jp">レート制限アップグレード選択肢の表示修正</div>
+    <div class="change-note">コンテキスト圧縮後にオプションが消失していた</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed multiple /resume picker bugs</div>
+    <div class="change-jp">/resumeピッカーの複数バグ修正</div>
+    <div class="change-note">編集不可、検索ワイプ、空リスト、テキスト置換等の問題を解決</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed file-edit diffs in --resume</div>
+    <div class="change-jp">--resumeで大きなファイルの差分消失修正</div>
+    <div class="change-note">編集ファイルが10KB以上の場合に差分が表示されなかった</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed --resume cache misses and input persistence</div>
+    <div class="change-jp">--resumeのキャッシュミスとメッセージ永続化修正</div>
+    <div class="change-note">キャッシュミスとアタッチメントメッセージの保存失敗を修正</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed unsaved input while Claude is working</div>
+    <div class="change-jp">入力中のメッセージ保存漏れ修正</div>
+    <div class="change-note">Claude処理中に入力されたメッセージがトランスクリプトに保存されなかった</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed Stop hook failures on long sessions</div>
+    <div class="change-jp">長時間セッションのStopフック失敗修正</div>
+    <div class="change-note">プロンプト長超過やAPI エラーでフック失敗していた</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed subagent worktree working directory leak</div>
+    <div class="change-jp">サブエージェントのワークツリーディレクトリリーク修正</div>
+    <div class="change-note">ワークツリー隔離またはcwd オーバーライドで親セッション環境が漏えいしていた</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed duplicate transcript files on context compaction</div>
+    <div class="change-jp">コンテキスト圧縮時の重複ファイル生成修正</div>
+    <div class="change-note">プロンプト長超過リトライ時に数MB単位の重複ファイルが作成されていた</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed git plugin update version check</div>
+    <div class="change-jp">Gitベースプラグインの更新チェック修正</div>
+    <div class="change-note">リモートに新しいコミットがある場合も「最新」と報告していた</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed slash command picker with YAML keywords</div>
+    <div class="change-jp">YAMLキーワード名のプラグイン対応修正</div>
+    <div class="change-note">フロントマターがtrue等のYAMLキーワードの場合にピッカーが破損していた</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed URL copying with line breaks</div>
+    <div class="change-jp">折り返しURLのコピー修正</div>
+    <div class="change-note">NO_FLICKERモードで行末のURLをコピーすると空白が挿入されていた</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed scroll rendering artifacts</div>
+    <div class="change-jp">スクロール表示アーティファクト修正</div>
+    <div class="change-note">zellij内でNO_FLICKERモード使用時に表示異常が発生していた</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed NO_FLICKER hover crash on MCP results</div>
+    <div class="change-jp">MCPツール結果へのホバー時のクラッシュ修正</div>
+    <div class="change-note">NO_FLICKERモードでMCPツール結果をホバーするとクラッシュしていた</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed custom status line in short terminals</div>
+    <div class="change-jp">カスタムステータスライン表示修正</div>
+    <div class="change-note">24行未満の端末でステータスラインが表示されなかった</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed keyboard shortcuts in Warp</div>
+    <div class="change-jp">Warpでのキーボードショートカット修正</div>
+    <div class="change-note">NO_FLICKERモード使用時にShift+Enterなどが機能しなかった</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed Unicode text corruption on Windows</div>
+    <div class="change-jp">Windowsでの日本語等テキスト破損修正</div>
+    <div class="change-note">NO_FLICKERモードでCJKテキストコピー時に文字化けしていた</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed Bedrock SigV4 auth with empty env vars</div>
+    <div class="change-jp">BedrockのSigV4認証修正</div>
+    <div class="change-note">AWS_BEARER_TOKEN_BEDROCKが空文字列の場合に失敗していた</div>
+  </div>
+</div><div class="cat-header" style="color:#9a6700;background:#fff8c5;">⚡ パフォーマンス<span class="cat-count">5件</span></div>
+<div class="change-item">
+  <div class="change-icon">⚡</div>
+  <div class="change-body">
+    <div class="change-en">Fixed MCP HTTP/SSE buffer memory leak</div>
+    <div class="change-jp">MCPバッファメモリリークの修正</div>
+    <div class="change-note">サーバー再接続時に約50MB/時間のメモリが解放されていなかった</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">⚡</div>
+  <div class="change-body">
+    <div class="change-en">Improved 429 rate limit exponential backoff</div>
+    <div class="change-jp">429レート制限の再試行最適化</div>
+    <div class="change-note">指数バックオフがRetry-Afterの最小値として適用されるよう改善</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">⚡</div>
+  <div class="change-body">
+    <div class="change-en">Fixed memory leak on API retries</div>
+    <div class="change-jp">NO_FLICKERのリトライ時メモリリーク修正</div>
+    <div class="change-note">API リトライでストリーミング状態が残留していた</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">⚡</div>
+  <div class="change-body">
+    <div class="change-en">Improved mouse-wheel scroll performance</div>
+    <div class="change-jp">Windows Terminalのマウススクロール最適化</div>
+    <div class="change-note">NO_FLICKERモード使用時のスクロール速度を改善</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">⚡</div>
+  <div class="change-body">
+    <div class="change-en">Optimized session transcript size</div>
+    <div class="change-jp">セッショントランスクリプトサイズ最適化</div>
+    <div class="change-note">空フックエントリをスキップし事前編集ファイル上限を設定</div>
+  </div>
+</div><div class="cat-header" style="color:#bc4c00;background:#ffd8b5;">🔒 セキュリティ<span class="cat-count">1件</span></div>
+<div class="change-item">
+  <div class="change-icon">🔒</div>
+  <div class="change-body">
+    <div class="change-en">Hardened Bash tool security and permissions</div>
+    <div class="change-jp">Bashツールのセキュリティ強化</div>
+    <div class="change-note">環境変数プレフィックスとネットワークリダイレクトのチェック強化</div>
+  </div>
+</div>
+    <div class="summary-bar"><span class="sum-pill">✨ 新機能 16件</span><span class="sum-pill">🐛 バグ修正 23件</span><span class="sum-pill">⚡ パフォーマンス 5件</span><span class="sum-pill">🔒 セキュリティ 1件</span></div>
+    <a class="github-btn" href="https://github.com/anthropics/claude-code/releases/tag/v2.1.97" target="_blank">GitHub リリースページを見る →</a>
+  </div>
+</main>
+<footer>Claude Code リリースノート 日本語解説 | 自動生成</footer>
+</body>
+</html>
