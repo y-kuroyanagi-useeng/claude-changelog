@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Claude Code v2.1.101 リリースノート</title>
+<style>
+:root{--bg:#f6f8fa;--bg2:#fff;--bg3:#f0f2f5;--border:#d0d7de;--text:#1f2328;--text2:#57606a;--accent:#0969da;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI','Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:15px;}
+.site-header{background:var(--bg2);border-bottom:1px solid var(--border);padding:24px;text-align:center;position:sticky;top:0;z-index:10;box-shadow:0 1px 6px rgba(0,0,0,.06);}
+.site-header h1{font-size:1.5rem;font-weight:700;}
+.site-header h1 .brand{color:var(--accent);}
+.site-header .meta{margin-top:6px;font-size:.85rem;color:var(--text2);}
+.back-link{display:inline-block;margin-top:8px;font-size:.82rem;color:var(--accent);text-decoration:none;}
+.back-link:hover{text-decoration:underline;}
+.container{max-width:860px;margin:24px auto 60px;padding:0 16px;}
+.version-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.05);}
+.card-header{background:#e8f3ff;border-bottom:2px solid var(--accent);padding:18px 22px;}
+.card-header h2{font-size:1.4rem;font-weight:700;}
+.card-header .subtitle{margin-top:4px;font-size:.85rem;color:var(--text2);}
+.cat-header{display:flex;align-items:center;justify-content:space-between;padding:10px 22px;font-weight:700;font-size:1rem;border-bottom:1px solid var(--border);}
+.cat-count{font-size:.78rem;font-weight:600;background:rgba(0,0,0,.07);border-radius:20px;padding:2px 10px;}
+.change-item{display:flex;align-items:flex-start;gap:12px;padding:10px 22px;border-bottom:1px solid var(--bg3);}
+.change-item:last-child{border-bottom:none;}
+.change-item:hover{background:var(--bg3);}
+.change-icon{font-size:1.2rem;line-height:1.6;flex-shrink:0;width:26px;text-align:center;}
+.change-body{flex:1;min-width:0;}
+.change-en{font-size:.82rem;color:var(--text2);margin-bottom:2px;}
+.change-jp{font-weight:600;font-size:.95rem;}
+.change-note{margin-top:3px;font-size:.83rem;color:var(--text2);line-height:1.5;}
+.summary-bar{display:flex;flex-wrap:wrap;gap:8px;padding:12px 22px;background:var(--bg3);border-top:1px solid var(--border);}
+.sum-pill{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:2px 10px;font-size:.78rem;color:var(--text2);}
+.github-btn{display:block;text-align:center;padding:12px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;font-size:.9rem;}
+.github-btn:hover{background:#0860c8;}
+footer{text-align:center;padding:24px;font-size:.8rem;color:var(--text2);border-top:1px solid var(--border);background:var(--bg2);}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <h1><span class="brand">Claude Code</span> v2.1.101 リリースノート</h1>
+  <div class="meta">2026年4月10日 ｜ 全36件の変更</div>
+  <a class="back-link" href="index.html">← バージョン一覧に戻る</a>
+</header>
+<main class="container">
+  <div class="version-card">
+    <div class="card-header">
+      <h2>🚀 Claude Code v2.1.101 リリース</h2>
+      <div class="subtitle">2026年4月10日</div>
+    </div>
+    <div class="cat-header" style="color:#0969da;background:#ddf4ff;">✨ 新機能<span class="cat-count">13件</span></div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Added /team-onboarding command to generate teammate ramp-up guides</div>
+    <div class="change-jp">/team-onboardingコマンドを追加してチームメイトのオンボーディングガイドを生成</div>
+    <div class="change-note">ローカルのClaude Code使用状況からチームメンバー向けのラップアップガイドを自動生成できるようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">/ultraplan and remote-session features now auto-create default cloud environment</div>
+    <div class="change-jp">/ultraplanなどのリモートセッション機能がクラウド環境を自動作成</div>
+    <div class="change-note">ウェブセットアップが不要になり、コマンドラインから直接デフォルトのクラウド環境を使用できます。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Improved brief mode to retry when Claude responds with plain text</div>
+    <div class="change-jp">ブリーフモードが平文レスポンス時に自動リトライ</div>
+    <div class="change-note">構造化メッセージの代わりに平文が返された場合、自動的に1回リトライするように改善されました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Focus mode improvements for more self-contained summaries</div>
+    <div class="change-jp">フォーカスモードで自己完結型サマリーを生成</div>
+    <div class="change-note">ユーザーが最終メッセージのみを見ることを認識し、より完全なサマリーを作成するようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Improved error messages for unavailable tools and rate limits</div>
+    <div class="change-jp">ツール利用不可およびレート制限のエラーメッセージを改善</div>
+    <div class="change-note">利用できない理由と対処法、リセット時刻が明確に表示されるようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Added API-provided explanation to refusal error messages</div>
+    <div class="change-jp">拒否エラーメッセージにAPI提供の説明文を追加</div>
+    <div class="change-note">拒否理由がより詳細に説明されるようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">claude -p --resume now accepts session titles set via /rename or --name</div>
+    <div class="change-jp">claude -p --resumeが/renameまたは--nameで設定したセッションタイトルを受け入れ</div>
+    <div class="change-note">セッション名でのリジュームが可能になり、操作性が向上しました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Improved settings resilience for unrecognized hook event names</div>
+    <div class="change-jp">settings.jsonの不正なフック名に対する耐性を強化</div>
+    <div class="change-note">不認識のフックイベント名があっても設定ファイル全体が無視されなくなりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Plugin hooks from managed settings now run correctly with allowManagedHooksOnly</div>
+    <div class="change-jp">管理設定由来のプラグインフックがallowManagedHooksOnlyで正常に実行</div>
+    <div class="change-note">マネージド設定から強制有効化されたプラグインフックが適切に動作するようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Plugin marketplace refresh warnings now displayed on update failures</div>
+    <div class="change-jp">/pluginコマンドでマーケットプレイス更新失敗時に警告を表示</div>
+    <div class="change-note">古いバージョン情報が黙って表示されるのではなく、更新失敗が明確に警告されます。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Plan mode hides &#39;Refine with Ultraplan&#39; when unavailable</div>
+    <div class="change-jp">プランモードでUltraplan利用不可時に関連オプションを非表示化</div>
+    <div class="change-note">組織設定や認証情報で到達できない場合、関連オプションが自動的に隠されます。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Beta tracing now honors OTEL logging environment variables</div>
+    <div class="change-jp">ベータトレーシングがOTEL_LOG_USER_PROMPTSなど環境変数を尊重</div>
+    <div class="change-note">OTEL_LOG_TOOL_DETAILSやOTEL_LOG_TOOL_CONTENTの設定に基づいて機密属性が制御されます。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">SDK query() now cleans up subprocess and temp files</div>
+    <div class="change-jp">SDK query()がサブプロセスと一時ファイルをクリーンアップ</div>
+    <div class="change-note">forループからの脱出や非同期操作時にリソースが適切に解放されるようになりました。</div>
+  </div>
+</div><div class="cat-header" style="color:#cf222e;background:#ffebe9;">🐛 バグ修正<span class="cat-count">21件</span></div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed memory leak in long sessions retaining historical message copies</div>
+    <div class="change-jp">長期セッションでのメモリリークを修正</div>
+    <div class="change-note">仮想スクローラーが数十個の過去メッセージリストのコピーを保持していた問題を解決しました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed --resume / --continue losing context on large sessions</div>
+    <div class="change-jp">--resumeで大規模セッションのコンテキストが失われる問題を修正</div>
+    <div class="change-note">ローダーが死んだブランチに固定されていた問題を修正し、ライブ会話への正しいブリッジングを実現しました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed --resume incorrectly bridging into unrelated subagent conversations</div>
+    <div class="change-jp">--resumeが無関係なサブエージェント会話に誤ってブリッジする問題を修正</div>
+    <div class="change-note">サブエージェントメッセージが会話の間隙付近にあった場合の不具合を解決しました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed crash on --resume with missing tool result file_path</div>
+    <div class="change-jp">--resumeでツール結果のfile_pathが欠落している場合のクラッシュを修正</div>
+    <div class="change-note">Edit/Writeツール結果が不完全な場合も安全に処理できるようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed hardcoded 5-minute request timeout aborting slow operations</div>
+    <div class="change-jp">ハードコーディングされた5分のリクエストタイムアウトを修正</div>
+    <div class="change-note">ローカルLLMや拡張思考など遅いバックエンドでも適切にAPI_TIMEOUT_MSを尊重するようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed permissions.deny rules not overriding PreToolUse hook permissionDecision</div>
+    <div class="change-jp">permissions.denyがPreToolUseフックの許可判定をオーバーライドできない問題を修正</div>
+    <div class="change-note">フックでask判定されていてもdeny規則が適切に優先されるようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed --setting-sources cleanup ignoring cleanupPeriodDays</div>
+    <div class="change-jp">--setting-sourcesでcleanupPeriodDaysが無視される問題を修正</div>
+    <div class="change-note">会話履歴の削除ポリシーが正しく適用されるようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed Bedrock SigV4 authentication failing with 403</div>
+    <div class="change-jp">Bedrock SigV4認証が403で失敗する問題を修正</div>
+    <div class="change-note">ANTHROPIC_AUTH_TOKENやAPIヘッダーが設定されている場合の認証失敗を解決しました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed claude -w &lt;name&gt; failing with &#39;already exists&#39; after worktree cleanup</div>
+    <div class="change-jp">claude -w &lt;name&gt;がワークツリークリーンアップ後に&#39;already exists&#39;で失敗する問題を修正</div>
+    <div class="change-note">古いワークツリーディレクトリが残っていた場合の問題を解決しました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed subagents not inheriting MCP tools from dynamically-injected servers</div>
+    <div class="change-jp">サブエージェントが動的注入されたMCPツールを継承できない問題を修正</div>
+    <div class="change-note">動的なMCPサーバー注入が正しくサブエージェントに伝播するようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed sub-agents in isolated worktrees denied Read/Edit access to their own files</div>
+    <div class="change-jp">独立ワークツリー内のサブエージェントが自身のファイルへのアクセスを拒否される問題を修正</div>
+    <div class="change-note">ワークツリー内のファイルに対するRead/Edit権限が正しく付与されるようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed sandboxed Bash commands failing with mktemp after fresh boot</div>
+    <div class="change-jp">新規起動後のBashコマンドがmktempで失敗する問題を修正</div>
+    <div class="change-note">サンドボックス環境でmktempが正常に動作するようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed claude mcp serve tool calls failing with &#39;Tool execution failed&#39;</div>
+    <div class="change-jp">claude mcp serveでツール呼び出しが失敗する問題を修正</div>
+    <div class="change-note">outputSchemaを検証するMCPクライアントでの失敗を解決しました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed RemoteTrigger tool&#39;s run action sending empty body</div>
+    <div class="change-jp">RemoteTriggerのrun操作で空のボディが送信される問題を修正</div>
+    <div class="change-note">サーバーからの拒否エラーが解消されました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed /resume picker showing incorrect cwd and preview issues</div>
+    <div class="change-jp">/resumeピッカーのcwd表示が不正である問題など複数の不具合を修正</div>
+    <div class="change-note">ワークツリーでのパス表示、Windowsターミナルでのプレビュー、セッション検出エラーなどを解決しました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed Grep tool ENOENT when ripgrep binary path becomes stale</div>
+    <div class="change-jp">Grepツールのripgrepバイナリパスが古くなった場合のENOENTを修正</div>
+    <div class="change-note">VS Code拡張の自動更新やmacOSのApp Translocationに対応し、自動修復機能を追加しました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed /btw writing entire conversation to disk on every use</div>
+    <div class="change-jp">/btwコマンドが毎回全会話をディスクに書き込む問題を修正</div>
+    <div class="change-note">不要な大量書き込みが排除され、パフォーマンスが改善されました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed /context Free space and Messages breakdown disagreement</div>
+    <div class="change-jp">/contextのFree spaceとMessagesの内訳が一致しない問題を修正</div>
+    <div class="change-note">ヘッダーパーセンテージの計算に一貫性が生まれました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed multiple plugin issues with duplicate names and version caching</div>
+    <div class="change-jp">プラグインの重複名やバージョンキャッシュに関する複数の問題を修正</div>
+    <div class="change-note">/plugin update時のENAMETOOLONG、Discoverでのインストール済み表示重複、ディレクトリ型プラグインの古いキャッシュ読み込みなどを解決しました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed /mcp menu offering wrong actions for OAuth-configured servers</div>
+    <div class="change-jp">/mcpメニューがOAuth設定サーバーに対して誤ったアクションを提供する問題を修正</div>
+    <div class="change-note">headersHelper設定のサーバーに対して再接続オプションが正しく表示されるようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed ctrl+], ctrl+\, ctrl+^ keybindings not firing in some terminals</div>
+    <div class="change-jp">一部のターミナルでctrl+]など制御文字キーバインディングが動作しない問題を修正</div>
+    <div class="change-note">Terminal.app、デフォルトiTerm2、xtermなどでC0制御バイトを正しく処理するようになりました。</div>
+  </div>
+</div><div class="cat-header" style="color:#bc4c00;background:#ffd8b5;">🔒 セキュリティ<span class="cat-count">1件</span></div>
+<div class="change-item">
+  <div class="change-icon">🔒</div>
+  <div class="change-body">
+    <div class="change-en">Fixed command injection vulnerability in POSIX which fallback</div>
+    <div class="change-jp">POSIXのwhichフォールバックでコマンドインジェクション脆弱性を修正</div>
+    <div class="change-note">LSPバイナリ検出時の脆弱性を排除し、セキュリティを強化しました。</div>
+  </div>
+</div><div class="cat-header" style="color:#8250df;background:#fbefff;">⚠️ 破壊的変更<span class="cat-count">1件</span></div>
+<div class="change-item">
+  <div class="change-icon">⚠️</div>
+  <div class="change-body">
+    <div class="change-en">OS CA certificate store now trusted by default (set CLAUDE_CODE_CERT_STORE=bundled to revert)</div>
+    <div class="change-jp">OSのCA証明書ストアがデフォルトで信頼されるように変更</div>
+    <div class="change-note">エンタープライズTLSプロキシが追加設定なしで動作するようになりました。バンドルされたCAのみを使用したい場合は環境変数で制御できます。</div>
+  </div>
+</div>
+    <div class="summary-bar"><span class="sum-pill">✨ 新機能 13件</span><span class="sum-pill">🐛 バグ修正 21件</span><span class="sum-pill">🔒 セキュリティ 1件</span><span class="sum-pill">⚠️ 破壊的変更 1件</span></div>
+    <a class="github-btn" href="https://github.com/anthropics/claude-code/releases/tag/v2.1.101" target="_blank">GitHub リリースページを見る →</a>
+  </div>
+</main>
+<footer>Claude Code リリースノート 日本語解説 | 自動生成</footer>
+</body>
+</html>
