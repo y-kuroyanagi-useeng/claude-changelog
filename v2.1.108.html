@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Claude Code v2.1.108 リリースノート</title>
+<style>
+:root{--bg:#f6f8fa;--bg2:#fff;--bg3:#f0f2f5;--border:#d0d7de;--text:#1f2328;--text2:#57606a;--accent:#0969da;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI','Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:15px;}
+.site-header{background:var(--bg2);border-bottom:1px solid var(--border);padding:24px;text-align:center;position:sticky;top:0;z-index:10;box-shadow:0 1px 6px rgba(0,0,0,.06);}
+.site-header h1{font-size:1.5rem;font-weight:700;}
+.site-header h1 .brand{color:var(--accent);}
+.site-header .meta{margin-top:6px;font-size:.85rem;color:var(--text2);}
+.back-link{display:inline-block;margin-top:8px;font-size:.82rem;color:var(--accent);text-decoration:none;}
+.back-link:hover{text-decoration:underline;}
+.container{max-width:860px;margin:24px auto 60px;padding:0 16px;}
+.version-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.05);}
+.card-header{background:#e8f3ff;border-bottom:2px solid var(--accent);padding:18px 22px;}
+.card-header h2{font-size:1.4rem;font-weight:700;}
+.card-header .subtitle{margin-top:4px;font-size:.85rem;color:var(--text2);}
+.cat-header{display:flex;align-items:center;justify-content:space-between;padding:10px 22px;font-weight:700;font-size:1rem;border-bottom:1px solid var(--border);}
+.cat-count{font-size:.78rem;font-weight:600;background:rgba(0,0,0,.07);border-radius:20px;padding:2px 10px;}
+.change-item{display:flex;align-items:flex-start;gap:12px;padding:10px 22px;border-bottom:1px solid var(--bg3);}
+.change-item:last-child{border-bottom:none;}
+.change-item:hover{background:var(--bg3);}
+.change-icon{font-size:1.2rem;line-height:1.6;flex-shrink:0;width:26px;text-align:center;}
+.change-body{flex:1;min-width:0;}
+.change-en{font-size:.82rem;color:var(--text2);margin-bottom:2px;}
+.change-jp{font-weight:600;font-size:.95rem;}
+.change-note{margin-top:3px;font-size:.83rem;color:var(--text2);line-height:1.5;}
+.summary-bar{display:flex;flex-wrap:wrap;gap:8px;padding:12px 22px;background:var(--bg3);border-top:1px solid var(--border);}
+.sum-pill{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:2px 10px;font-size:.78rem;color:var(--text2);}
+.github-btn{display:block;text-align:center;padding:12px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;font-size:.9rem;}
+.github-btn:hover{background:#0860c8;}
+footer{text-align:center;padding:24px;font-size:.8rem;color:var(--text2);border-top:1px solid var(--border);background:var(--bg2);}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <h1><span class="brand">Claude Code</span> v2.1.108 リリースノート</h1>
+  <div class="meta">2026年4月14日 ｜ 全23件の変更</div>
+  <a class="back-link" href="index.html">← バージョン一覧に戻る</a>
+</header>
+<main class="container">
+  <div class="version-card">
+    <div class="card-header">
+      <h2>🚀 Claude Code v2.1.108 リリース</h2>
+      <div class="subtitle">2026年4月14日</div>
+    </div>
+    <div class="cat-header" style="color:#0969da;background:#ddf4ff;">✨ 新機能<span class="cat-count">8件</span></div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Added ENABLE_PROMPT_CACHING_1H environment variable for 1-hour prompt cache TTL</div>
+    <div class="change-jp">プロンプトキャッシュの1時間TTLを設定できるENABLE_PROMPT_CACHING_1H環境変数を追加</div>
+    <div class="change-note">APIキー、Bedrock、Vertex、Foundryで利用可能。ENABLE_PROMPT_CACHING_1H_BEDROCKは廃止予定ですが引き続き対応しています。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Added recap feature to provide context when returning to sessions</div>
+    <div class="change-jp">セッション復帰時のコンテキスト提供のためrecapフィーチャーを追加</div>
+    <div class="change-note">/configで設定可能、/recapで手動実行可能。CLAUDE_CODE_ENABLE_AWAY_SUMMARY環境変数で強制可能。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Model can now discover and invoke built-in slash commands via Skill tool</div>
+    <div class="change-jp">モデルがSkillツール経由で組み込みスラッシュコマンドを検出・実行可能に</div>
+    <div class="change-note">/init、/review、/security-reviewなどの組み込みコマンドが自動実行されるようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">/undo is now an alias for /rewind</div>
+    <div class="change-jp">/undoが/rewindのエイリアスに対応</div>
+    <div class="change-note">より簡潔なコマンド名で同じ機能を実行できるようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Improved /model to warn before switching models mid-conversation</div>
+    <div class="change-jp">/modelコマンドで会話中のモデル切り替え時に警告を表示</div>
+    <div class="change-note">モデル切り替え後は全履歴がキャッシュなしで再読み込みされるため、警告が追加されました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Improved /resume picker to default to current directory sessions</div>
+    <div class="change-jp">/resumeピッカーが現在のディレクトリのセッションをデフォルト表示</div>
+    <div class="change-note">Ctrl+Aで全プロジェクトのセッションを表示できます。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Improved error messages for rate limits and server errors</div>
+    <div class="change-jp">レート制限やサーバーエラーのエラーメッセージを改善</div>
+    <div class="change-note">サーバーレート制限とプラン使用制限を区別、5xx/529エラーではstatus.claude.comへのリンクを表示。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Added &#39;verbose&#39; indicator when viewing detailed transcript</div>
+    <div class="change-jp">詳細トランスクリプト表示時に&#39;verbose&#39;インジケーターを追加</div>
+    <div class="change-note">Ctrl+Oで詳細トランスクリプトを表示する際に状態が明示されます。</div>
+  </div>
+</div><div class="cat-header" style="color:#cf222e;background:#ffebe9;">🐛 バグ修正<span class="cat-count">14件</span></div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed paste not working in /login code prompt</div>
+    <div class="change-jp">/loginコード入力画面でペースト機能が動作しない不具合を修正</div>
+    <div class="change-note">バージョン2.1.105で発生していた回帰を修正しました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed DISABLE_TELEMETRY falling back to 5-minute cache TTL</div>
+    <div class="change-jp">DISABLE_TELEMETRY設定時のキャッシュTTL問題を修正</div>
+    <div class="change-note">サブスクライバーが1時間TTLの代わりに5分TTLにフォールバックしていた問題を解決。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed Agent tool prompting for permission in auto mode</div>
+    <div class="change-jp">オートモード時のAgentツール権限確認をスキップ</div>
+    <div class="change-note">安全性分類器のトランスクリプトがコンテキストウィンドウを超過した場合の権限確認が修正されました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed Bash tool producing no output with # comment lines</div>
+    <div class="change-jp">Bashツールがコメント行で終わる場合の出力なし問題を修正</div>
+    <div class="change-note">CLAUDE_ENV_FILE(例：~/.zprofile)が#コメント行で終わる場合の問題を解決。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed --resume losing session&#39;s custom name and color</div>
+    <div class="change-jp">--resumeでセッションのカスタム名と色が失われる問題を修正</div>
+    <div class="change-note">/renameで設定したカスタム名と色が正常に保持されるようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed session titles showing placeholder example text</div>
+    <div class="change-jp">セッションタイトルにプレースホルダーテキストが表示される問題を修正</div>
+    <div class="change-note">最初のメッセージが短い挨拶の場合にプレースホルダーが残っていた問題を解決。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed terminal escape codes appearing as garbage text</div>
+    <div class="change-jp">ターミナルエスケープコードが文字化けする問題を修正</div>
+    <div class="change-note">--teleport後のプロンプト入力にゴミ文字が表示されていた問題を解決。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed /feedback retry without re-editing description</div>
+    <div class="change-jp">/feedbackの再送信機能を修正</div>
+    <div class="change-note">失敗後にEnterキーで説明を再編集せずに再送信できるようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed --teleport and --resume precondition errors exiting silently</div>
+    <div class="change-jp">--teleport/--resumeのエラー表示が改善</div>
+    <div class="change-note">ダーティなGitツリーやセッション未検出などのエラーが正常に表示されるようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed Remote Control session titles being overwritten</div>
+    <div class="change-jp">Remote Controlセッションタイトルの上書き問題を修正</div>
+    <div class="change-note">Webページで設定したタイトルが3番目のメッセージ後に自動生成タイトルで上書きされていた問題を解決。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed --resume truncating sessions with self-referencing messages</div>
+    <div class="change-jp">--resumeでセッションが切り詰められる問題を修正</div>
+    <div class="change-note">トランスクリプトが自己参照メッセージを含む場合の切り詰め問題を解決。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed transcript write failures being silently dropped</div>
+    <div class="change-jp">トランスクリプト書き込み失敗のログが改善</div>
+    <div class="change-note">ディスク満杯などの書き込み失敗がログに記録されるようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed diacritical marks being dropped from responses</div>
+    <div class="change-jp">レスポンスの発音記号が削除される問題を修正</div>
+    <div class="change-note">言語設定がある場合、アクセント記号やウムラウトが正常に表示されるようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fixed policy-managed plugins never auto-updating</div>
+    <div class="change-jp">ポリシー管理プラグインの自動更新を修正</div>
+    <div class="change-note">異なるプロジェクトから実行時にプラグインが自動更新されるようになりました。</div>
+  </div>
+</div><div class="cat-header" style="color:#9a6700;background:#fff8c5;">⚡ パフォーマンス<span class="cat-count">1件</span></div>
+<div class="change-item">
+  <div class="change-icon">⚡</div>
+  <div class="change-body">
+    <div class="change-en">Reduced memory footprint by loading language grammars on demand</div>
+    <div class="change-jp">言語グラマーのオンデマンド読み込みでメモリ使用量を削減</div>
+    <div class="change-note">ファイル読み取り、編集、構文ハイライト時のメモリフットプリントが改善されました。</div>
+  </div>
+</div>
+    <div class="summary-bar"><span class="sum-pill">✨ 新機能 8件</span><span class="sum-pill">🐛 バグ修正 14件</span><span class="sum-pill">⚡ パフォーマンス 1件</span></div>
+    <a class="github-btn" href="https://github.com/anthropics/claude-code/releases/tag/v2.1.108" target="_blank">GitHub リリースページを見る →</a>
+  </div>
+</main>
+<footer>Claude Code リリースノート 日本語解説 | 自動生成</footer>
+</body>
+</html>
