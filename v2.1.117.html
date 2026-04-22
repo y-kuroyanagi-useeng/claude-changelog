@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Claude Code v2.1.117 リリースノート</title>
+<style>
+:root{--bg:#f6f8fa;--bg2:#fff;--bg3:#f0f2f5;--border:#d0d7de;--text:#1f2328;--text2:#57606a;--accent:#0969da;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI','Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:15px;}
+.site-header{background:var(--bg2);border-bottom:1px solid var(--border);padding:24px;text-align:center;position:sticky;top:0;z-index:10;box-shadow:0 1px 6px rgba(0,0,0,.06);}
+.site-header h1{font-size:1.5rem;font-weight:700;}
+.site-header h1 .brand{color:var(--accent);}
+.site-header .meta{margin-top:6px;font-size:.85rem;color:var(--text2);}
+.back-link{display:inline-block;margin-top:8px;font-size:.82rem;color:var(--accent);text-decoration:none;}
+.back-link:hover{text-decoration:underline;}
+.container{max-width:860px;margin:24px auto 60px;padding:0 16px;}
+.version-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.05);}
+.card-header{background:#e8f3ff;border-bottom:2px solid var(--accent);padding:18px 22px;}
+.card-header h2{font-size:1.4rem;font-weight:700;}
+.card-header .subtitle{margin-top:4px;font-size:.85rem;color:var(--text2);}
+.cat-header{display:flex;align-items:center;justify-content:space-between;padding:10px 22px;font-weight:700;font-size:1rem;border-bottom:1px solid var(--border);}
+.cat-count{font-size:.78rem;font-weight:600;background:rgba(0,0,0,.07);border-radius:20px;padding:2px 10px;}
+.change-item{display:flex;align-items:flex-start;gap:12px;padding:10px 22px;border-bottom:1px solid var(--bg3);}
+.change-item:last-child{border-bottom:none;}
+.change-item:hover{background:var(--bg3);}
+.change-icon{font-size:1.2rem;line-height:1.6;flex-shrink:0;width:26px;text-align:center;}
+.change-body{flex:1;min-width:0;}
+.change-en{font-size:.82rem;color:var(--text2);margin-bottom:2px;}
+.change-jp{font-weight:600;font-size:.95rem;}
+.change-note{margin-top:3px;font-size:.83rem;color:var(--text2);line-height:1.5;}
+.summary-bar{display:flex;flex-wrap:wrap;gap:8px;padding:12px 22px;background:var(--bg3);border-top:1px solid var(--border);}
+.sum-pill{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:2px 10px;font-size:.78rem;color:var(--text2);}
+.github-btn{display:block;text-align:center;padding:12px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;font-size:.9rem;}
+.github-btn:hover{background:#0860c8;}
+footer{text-align:center;padding:24px;font-size:.8rem;color:var(--text2);border-top:1px solid var(--border);background:var(--bg2);}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <h1><span class="brand">Claude Code</span> v2.1.117 リリースノート</h1>
+  <div class="meta">2026年4月22日 ｜ 全29件の変更</div>
+  <a class="back-link" href="index.html">← バージョン一覧に戻る</a>
+</header>
+<main class="container">
+  <div class="version-card">
+    <div class="card-header">
+      <h2>🚀 Claude Code v2.1.117 リリース</h2>
+      <div class="subtitle">2026年4月22日</div>
+    </div>
+    <div class="cat-header" style="color:#0969da;background:#ddf4ff;">✨ 新機能<span class="cat-count">9件</span></div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Enable forked subagents on external builds</div>
+    <div class="change-jp">外部ビルドでフォークされたサブエージェントを有効化</div>
+    <div class="change-note">CLAUDE_CODE_FORK_SUBAGENT=1を設定して、外部ビルド上でフォークされたサブエージェントが利用できるようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Load mcpServers from agent frontmatter</div>
+    <div class="change-jp">エージェントフロントマターからmcpServersをロード</div>
+    <div class="change-note">--agentオプション経由で、メインスレッドエージェントセッションについてmcpServersが読み込まれるようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Persist model selection across restarts</div>
+    <div class="change-jp">/modelコマンドの選択を再起動後も保持</div>
+    <div class="change-note">プロジェクトで別のモデルが指定されている場合でも、選択したモデルが再起動時に保持されるようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Summarize stale sessions on /resume</div>
+    <div class="change-jp">/resumeコマンドが古いセッションを要約</div>
+    <div class="change-note">大きなセッションを再読み込みする前に要約を提供し、--resumeの既存動作と一致しました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Install missing plugin dependencies automatically</div>
+    <div class="change-jp">プラグイン依存関係を自動インストール</div>
+    <div class="change-note">既にインストール済みのプラグインに対して実行した場合、不足している依存関係がインストールされるようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Improve plugin dependency error messages</div>
+    <div class="change-jp">プラグイン依存関係エラーメッセージを改善</div>
+    <div class="change-note">「not installed」という明確なメッセージとインストールのヒントが表示され、marketplaceaddが自動解決するようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Expand cleanup retention to more directories</div>
+    <div class="change-jp">クリーンアップ保持期間のカバー範囲を拡大</div>
+    <div class="change-note">~/.claude/tasks/、~/.claude/shell-snapshots/、~/.claude/backups/がクリーンアップスイープの対象に追加されました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Enhance OpenTelemetry command and effort tracking</div>
+    <div class="change-jp">OpenTelemetryのコマンド・努力レベル追跡を強化</div>
+    <div class="change-note">user_promptイベントがcommand_nameとcommand_sourceを含むようになり、努力属性が追跡されるようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">✨</div>
+  <div class="change-body">
+    <div class="change-en">Increase default effort for premium subscribers</div>
+    <div class="change-jp">プレミアム購読者のデフォルト努力レベルを上昇</div>
+    <div class="change-note">Opus 4.6とSonnet 4.6のPro/Max購読者のデフォルト努力レベルがmediumからhighに変更されました。</div>
+  </div>
+</div><div class="cat-header" style="color:#cf222e;background:#ffebe9;">🐛 バグ修正<span class="cat-count">14件</span></div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fix Advisor Tool processing errors</div>
+    <div class="change-jp">Advisor Toolの処理エラーを修正</div>
+    <div class="change-note">experimental ラベルと詳細情報リンクが表示され、セッションのスタック問題が解決されました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fix OAuth token refresh in Plain-CLI</div>
+    <div class="change-jp">Plain-CLIのOAuthトークンリフレッシュを修正</div>
+    <div class="change-note">セッション中のトークン期限切れで失敗していた問題を修正し、401時に自動リフレッシュされるようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fix WebFetch hanging on large HTML pages</div>
+    <div class="change-jp">WebFetchの大規模HTMLハング問題を修正</div>
+    <div class="change-note">HTML-markdown変換前に入力を切り詰めることで、ハングしていた問題を解決しました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Handle HTTP 204 No Content from proxies</div>
+    <div class="change-jp">プロキシのHTTP 204対応を修正</div>
+    <div class="change-note">204レスポンス時のクラッシュを修正し、分かりやすいエラーメッセージが表示されるようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fix /login with expired OAuth token</div>
+    <div class="change-jp">/loginコマンドとOAuthトークン有効期限の問題を修正</div>
+    <div class="change-note">CLAUDE_CODE_OAUTH_TOKEN環境変数でのトークン期限切れ時に/loginが効かなかった問題を解決しました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fix prompt input undo behavior</div>
+    <div class="change-jp">プロンプト入力の取り消し機能を修正</div>
+    <div class="change-note">入力直後のCtrl+_が効かず段階をスキップしていた問題を修正しました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Respect NO_PROXY for Bun remote requests</div>
+    <div class="change-jp">Bun環境でNO_PROXY環境変数を尊重</div>
+    <div class="change-note">Bun実行環境下でリモートAPIリクエストがNO_PROXYを無視していた問題を修正しました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fix spurious escape/return key triggers</div>
+    <div class="change-jp">スローコネクション時のキートリガー誤発動を修正</div>
+    <div class="change-note">低速接続でテキストが統合される場合のキー誤発動問題を解決しました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fix Bedrock with Opus 4.7 thinking disabled</div>
+    <div class="change-jp">BedrockのOpus 4.7思考無効時エラーを修正</div>
+    <div class="change-note">application-inference-profileリクエストが400エラーになっていた問題を修正しました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fix MCP elicitation auto-cancel in SDK mode</div>
+    <div class="change-jp">MCPリクエストの自動キャンセルを修正</div>
+    <div class="change-note">print/SDKモードでサーバー接続時にelicitation/createリクエストが自動キャンセルされていた問題を解決しました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fix malware warning in subagent file reads</div>
+    <div class="change-jp">サブエージェントのマルウェア警告を修正</div>
+    <div class="change-note">別モデルのサブエージェントがファイル読み込みを不正に警告していた問題を修正しました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Reduce Linux memory growth from idle re-renders</div>
+    <div class="change-jp">Linux上のメモリ増加を削減</div>
+    <div class="change-note">バックグラウンドタスク時のアイドル再レンダリングによるメモリ増加問題をLinuxで修正しました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fix VSCode plugins panel with large marketplaces</div>
+    <div class="change-jp">VSCodeプラグインパネルの表示エラーを修正</div>
+    <div class="change-note">複数の大規模マーケットプレイス設定時に「Manage Plugins」パネルが破損していた問題を修正しました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🐛</div>
+  <div class="change-body">
+    <div class="change-en">Fix Opus 4.7 context percentage calculation</div>
+    <div class="change-jp">Opus 4.7のコンテキスト計算を修正</div>
+    <div class="change-note">200Kコンテキストウィンドウに対して計算していた問題を修正し、正しい1Mに対応しました。</div>
+  </div>
+</div><div class="cat-header" style="color:#9a6700;background:#fff8c5;">⚡ パフォーマンス<span class="cat-count">4件</span></div>
+<div class="change-item">
+  <div class="change-icon">⚡</div>
+  <div class="change-body">
+    <div class="change-en">Concurrent MCP server connections by default</div>
+    <div class="change-jp">MCPサーバーの並列接続がデフォルト化</div>
+    <div class="change-note">ローカルとclaude.aiの両方のMCPサーバーが設定されている場合、起動が高速化されました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">⚡</div>
+  <div class="change-body">
+    <div class="change-en">Faster native searches on macOS and Linux</div>
+    <div class="change-jp">ネイティブビルドで高速検索を実現</div>
+    <div class="change-note">GlobとGrepがbfsとugrepに置き換わり、ツール呼び出しなしで検索が高速化されました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">⚡</div>
+  <div class="change-body">
+    <div class="change-en">Cache executable lookups on Windows</div>
+    <div class="change-jp">Windowsで実行ファイル検索をキャッシュ化</div>
+    <div class="change-note">where.exeの検索がプロセスごとにキャッシュされ、サブプロセス起動が高速化されました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">⚡</div>
+  <div class="change-body">
+    <div class="change-en">Parallelize MCP server reconnections</div>
+    <div class="change-jp">reload_pluginsのMCPサーバー再接続を並列化</div>
+    <div class="change-note">SDK reload_pluginsメソッドがユーザーMCPサーバーをシリアルに再接続していた処理を並列化しました。</div>
+  </div>
+</div><div class="cat-header" style="color:#bc4c00;background:#ffd8b5;">🔒 セキュリティ<span class="cat-count">2件</span></div>
+<div class="change-item">
+  <div class="change-icon">🔒</div>
+  <div class="change-body">
+    <div class="change-en">Enforce managed marketplace restrictions</div>
+    <div class="change-jp">管理設定のマーケットプレイス制限を強制</div>
+    <div class="change-note">blockedMarketplacesとstrictKnownMarketplacesがプラグイン操作時に強制されるようになりました。</div>
+  </div>
+</div>
+<div class="change-item">
+  <div class="change-icon">🔒</div>
+  <div class="change-body">
+    <div class="change-en">Redact custom and MCP command names in telemetry</div>
+    <div class="change-jp">テレメトリーのコマンド名をマスク化</div>
+    <div class="change-note">OTEL_LOG_TOOL_DETAILS=1が設定されない限り、カスタムおよびMCPコマンド名がマスク化されます。</div>
+  </div>
+</div>
+    <div class="summary-bar"><span class="sum-pill">✨ 新機能 9件</span><span class="sum-pill">🐛 バグ修正 14件</span><span class="sum-pill">⚡ パフォーマンス 4件</span><span class="sum-pill">🔒 セキュリティ 2件</span></div>
+    <a class="github-btn" href="https://github.com/anthropics/claude-code/releases/tag/v2.1.117" target="_blank">GitHub リリースページを見る →</a>
+  </div>
+</main>
+<footer>Claude Code リリースノート 日本語解説 | 自動生成</footer>
+</body>
+</html>
